@@ -6,6 +6,28 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import { AccessControl } from "@openzeppelin/contracts/access/AccessControl.sol";
 import { Base64 } from "base64-sol/base64.sol";
 
+interface IGuild {
+  struct Proposal {
+    bytes32 id;
+    string title;
+    string body;
+    string category;
+    string createdAt;
+    string parentGuild;
+    bool isActive;
+  }
+
+  function getProposals() external view returns (Proposal memory);
+}
+
+contract Guild is IGuild {
+  Proposal[] private proposals_;
+
+  function getProposals() external view returns (Proposal[] memory) {
+    return proposals_;
+  }
+}
+
 contract CitizenV1 is ERC721, AccessControl {
   using Strings for uint256;
   using Strings for address;
@@ -20,10 +42,26 @@ contract CitizenV1 is ERC721, AccessControl {
   event Issued(address indexed citizen, uint256 id);
   event Revoked(address indexed citizen, uint256 id);
 
+  struct DAOStorage {
+    address[] founders;
+    address[] guilds;
+  }
+
+  struct DAOView {
+    address[] founders;
+    IGuild[] guilds;
+    IGuild.Proposal[] proposals;
+  }
+
+  DAOStorage private dao;
+
   constructor(address[] memory founders, address democracyV1)
     ERC721("Citizen", "CIZ")
     AccessControl()
   {
+    address[] memory guilds;
+    dao = DAOStorage(founders, guilds);
+
     for (uint256 index = 0; index < founders.length; index++) {
       uint256 _totalCitizens = totalCitizens++;
       _mint(founders[index], _totalCitizens);
@@ -39,6 +77,20 @@ contract CitizenV1 is ERC721, AccessControl {
   /* ================================================================================ */
   /* External Functions                                                               */
   /* ================================================================================ */
+
+  function getDAO(address guild) public payable returns (DAOView memory dao) {
+    return dao;
+
+    IGuild.Proposal[] memory guildProposals;
+    for (uint256 index = 0; index < dao.guilds.length; index++) {}
+
+    return DAOView({ founders: dao.founders, guilds: dao.guilds, proposals: guildProposals });
+  }
+
+  function createGuild(address guild) public payable {
+    Guild guild_ = new Guild();
+    dao.guilds.push(guild);
+  }
 
   function issue(address to, string calldata name) external {
     require(!isCitizen(to), "Existing Citizen");
