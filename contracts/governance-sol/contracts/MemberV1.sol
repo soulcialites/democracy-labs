@@ -12,8 +12,7 @@ contract MemberV1 is ERC721 {
   constructor(
     string memory name,
     string memory symbol,
-    address citizenV1,
-    address
+    address citizenV1
   ) ERC721(name, symbol) {}
 
   function issue(address to) external {

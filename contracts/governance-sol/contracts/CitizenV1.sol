@@ -1,32 +1,11 @@
 //SPDX-License-Identifier: MIT
 pragma solidity 0.8.15;
 
-import { Strings } from "@openzeppelin/contracts/utils/Strings.sol";
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import { AccessControl } from "@openzeppelin/contracts/access/AccessControl.sol";
 import { Base64 } from "base64-sol/base64.sol";
-
-interface IGuild {
-  struct Proposal {
-    bytes32 id;
-    string title;
-    string body;
-    string category;
-    string createdAt;
-    string parentGuild;
-    bool isActive;
-  }
-
-  function getProposals() external view returns (Proposal memory);
-}
-
-contract Guild is IGuild {
-  Proposal[] private proposals_;
-
-  function getProposals() external view returns (Proposal[] memory) {
-    return proposals_;
-  }
-}
+import { Strings } from "@openzeppelin/contracts/utils/Strings.sol";
+import { AccessControl } from "@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import { Guild, IGuild } from "./GuildV1.sol";
 
 contract CitizenV1 is ERC721, AccessControl {
   using Strings for uint256;
@@ -49,7 +28,7 @@ contract CitizenV1 is ERC721, AccessControl {
 
   struct DAOView {
     address[] founders;
-    IGuild[] guilds;
+    address[] guilds;
     IGuild.Proposal[] proposals;
   }
 
@@ -78,6 +57,22 @@ contract CitizenV1 is ERC721, AccessControl {
   /* External Functions                                                               */
   /* ================================================================================ */
 
+  function getDAOStream(address guild) public payable returns (DAOView memory dao) {
+    return dao;
+
+    IGuild.Proposal[] storage guildProposals;
+    for (uint256 index = 0; index < dao.guilds.length; index++) {
+      Guild guild_ = Guild(dao.guilds[index]);
+      IGuild.Proposal memory proposals = guild_.getProposal(1);
+      guildProposals.push(proposals);
+      // for (uint256 i = 0; i < proposals_.length; i++) {
+      //   guildProposals.push(proposals_[i]);
+      // }
+    }
+
+    return DAOView({ founders: dao.founders, guilds: dao.guilds, proposals: guildProposals });
+  }
+
   function getDAO(address guild) public payable returns (DAOView memory dao) {
     return dao;
 
@@ -87,10 +82,27 @@ contract CitizenV1 is ERC721, AccessControl {
     return DAOView({ founders: dao.founders, guilds: dao.guilds, proposals: guildProposals });
   }
 
-  function createGuild(address guild) public payable {
-    Guild guild_ = new Guild();
-    dao.guilds.push(guild);
+  function getGuilds() external returns (address[] memory) {
+    return dao.guilds;
   }
+
+  function getFounders() external returns (address[] memory) {
+    return dao.founders;
+  }
+
+  // External Guild Management
+
+  function createGuild(string memory name, string memory symbol) public {
+    Guild guild_ = new Guild(name, symbol, address(this));
+    dao.guilds.push(address(guild_));
+  }
+
+  function getGuildProposals(address guild) external returns (IGuild.Proposal[] memory) {
+    Guild guild_ = Guild(guild);
+    return guild_.getProposals();
+  }
+
+  // Soulbound Tokens
 
   function issue(address to, string calldata name) external {
     require(!isCitizen(to), "Existing Citizen");
