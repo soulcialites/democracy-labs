@@ -1,9 +1,12 @@
 // @ts-nocheck
+<<<<<<< HEAD
 import React, { useState } from "react";
 import CitizenV1 from "@democracy-labs/governance-sol/deployments/rinkeby/CitizenV1.json";
 import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
 import { useRouter } from "next/router";
 
+=======
+>>>>>>> faf139d1ab23b573b9da5f6e303de5a5654c540f
 import Directory from "@/components/DAO/Directory";
 import Guilds from "@/components/DAO/Guilds";
 import Proposals from "@/components/DAO/Proposals";
@@ -12,6 +15,11 @@ import ProposalDetail from "@/components/Modal/ProposalDetail";
 import { Main } from "@/templates/Main";
 import { Meta } from "@/templates/Meta";
 import { AppConfig } from "@/utils/AppConfig";
+import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
+import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { useContractRead } from "wagmi";
 
 const DAOPage = () => {
   const router = useRouter();
@@ -23,6 +31,12 @@ const DAOPage = () => {
     "getDAOStream",
     []
   );
+
+  // const { data: treasury } = useContractRead(
+  //   [placeAddress],
+  //   "realtimeBalanceOfNow",
+  //   []
+  // );
 
   return (
     <Main
@@ -59,7 +73,7 @@ const DAOPage = () => {
           </div>
           <div className="flex bg-gray-800 p-4">
             <div>
-              <h1 className="text-4xl font-bold text-white">$24,200</h1>
+              <h1 className="text-4xl font-bold text-white">$59,509</h1>
               <p className="text-sm text-white">Total funds in Treasury</p>
             </div>
           </div>
@@ -74,13 +88,13 @@ const DAOPage = () => {
         </div>
         <div className="mt-3 rounded bg-white p-4">
           <h1 className="font-bold text-black">KPIs</h1>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-16">
             <div>
-              <h1 className="text-2xl font-semibold">50,000</h1>
-              <p className="text-sm">Transactions Processed</p>
+              <h1 className="text-2xl font-semibold">346</h1>
+              <p className="text-sm">Proposals Processed</p>
             </div>
             <div>
-              <h1 className="text-2xl font-semibold">$53.2mn</h1>
+              <h1 className="text-2xl font-semibold">$32k</h1>
               <p className="text-sm">Dollars Granted</p>
             </div>
           </div>

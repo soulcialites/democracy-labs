@@ -7,7 +7,7 @@ import {
 } from "@democracy-labs/governor-alpha-wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
-
+import { useContractRead } from "wagmi";
 import IsMounted from "@/components/IsMounated";
 import DAOCard from "@/components/MyDashboard/DAOCard";
 import { Main } from "@/templates/Main";
@@ -42,15 +42,19 @@ export interface Proposal {
   parentGuild: string;
   parentDAO: string;
   isActive: boolean;
-  timeline: Timeline;
-}
-
-interface Timeline {
-  time: string;
+  timeline: string;
 }
 
 const Index = () => {
   const { data } = useAccount();
+
+  const { data: treasury } = useContractRead(
+    "jbass.eth",
+    "realtimeBalanceOfNow",
+    []
+  );
+
+  console.log(treasury);
 
   if (!data) {
     return (
@@ -103,6 +107,7 @@ const Index = () => {
           />
         </div>
       </div>
+<<<<<<< HEAD
       <div className="mx-auto my-5 max-w-4xl space-y-5 rounded bg-white p-4 text-black">
         <h1 className="text-2xl">Create New Society</h1>
 
@@ -143,6 +148,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+=======
+>>>>>>> faf139d1ab23b573b9da5f6e303de5a5654c540f
     </Main>
   );
 };
