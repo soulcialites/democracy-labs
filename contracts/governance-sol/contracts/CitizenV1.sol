@@ -57,14 +57,19 @@ contract CitizenV1 is ERC721, AccessControl {
   /* External Functions                                                               */
   /* ================================================================================ */
 
+<<<<<<< HEAD
+  function getDAOStream() public view returns (DAOView memory daoStream) {
+    IGuild.Proposal[] memory guildProposals;
+=======
   function getDAOStream() public view returns (DAOView memory dao) {
     return dao;
 
     IGuild.Proposal[] storage guildProposals;
+>>>>>>> de33f5eb87fea44df604430b78b4f088452a81d4
     for (uint256 index = 0; index < dao.guilds.length; index++) {
-      Guild guild_ = Guild(dao.guilds[index]);
-      IGuild.Proposal memory proposals = guild_.getProposal(1);
-      guildProposals.push(proposals);
+      // Guild guild_ = Guild(dao.guilds[index]);
+      // IGuild.Proposal memory proposals = guild_.getProposal(1);
+      // guildProposals.push(proposals);
       // for (uint256 i = 0; i < proposals_.length; i++) {
       //   guildProposals.push(proposals_[i]);
       // }
@@ -73,13 +78,8 @@ contract CitizenV1 is ERC721, AccessControl {
     return DAOView({ founders: dao.founders, guilds: dao.guilds, proposals: guildProposals });
   }
 
-  function getDAO(address guild) public payable returns (DAOView memory dao) {
+  function getDAO(address guild) public payable returns (DAOStorage memory daoInfo) {
     return dao;
-
-    IGuild.Proposal[] memory guildProposals;
-    for (uint256 index = 0; index < dao.guilds.length; index++) {}
-
-    return DAOView({ founders: dao.founders, guilds: dao.guilds, proposals: guildProposals });
   }
 
   function getGuilds() external returns (address[] memory) {

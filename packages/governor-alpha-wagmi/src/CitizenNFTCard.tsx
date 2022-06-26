@@ -14,7 +14,7 @@ export const CitizenNFTCard = ({
   className,
   contract,
   account,
-  tokenId = "1"
+  tokenId = "0"
 }: CitizenNFTCardProps) => {
   const classes = classNames(className, 'CitizenNFTCard');
 
@@ -32,6 +32,8 @@ export const CitizenNFTCard = ({
       })();
     }
   }, [data]);
+
+  console.log(tokenData, 'toook')
 
   if (isError || isLoading) return null;
   return<div className=''>

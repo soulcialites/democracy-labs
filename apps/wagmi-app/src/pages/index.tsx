@@ -1,18 +1,18 @@
 // import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
 import {
   CitizenNFTCard,
-  CitizenV1IssueFromFounder,
   CitizensLatestCardList,
+  CitizenV1IssueFromFounder,
 } from "@democracy-labs/governor-alpha-wagmi";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
+import { useAccount } from "wagmi";
 
 import IsMounted from "@/components/IsMounated";
-import { AppConfig } from "@/utils/AppConfig";
 import DAOCard from "@/components/MyDashboard/DAOCard";
 import { Main } from "@/templates/Main";
 import { Meta } from "@/templates/Meta";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useAccount } from "wagmi";
+import { AppConfig } from "@/utils/AppConfig";
 // import { GovernorAlphaPropose } from '@democracy-labs/governor-alpha-wagmi'
 
 type UserDAOs = {
@@ -54,6 +54,17 @@ const Index = () => {
 
   if (!data) {
     return (
+<<<<<<< HEAD
+      <IsMounted>
+        <div className="flex h-screen w-screen flex-col items-center justify-center gap-3 bg-black text-center text-white">
+          <h1 className="text-6xl font-bold">Decide the future of your DAO</h1>
+          <p className="mb-10 text-2xl">
+            Sybil Resistant On-Chain Representative Democracy
+          </p>
+          <ConnectButton />
+        </div>
+      </IsMounted>
+=======
       <div className="w-screen flex flex-col h-screen bg-black items-center justify-center text-white text-center gap-3">
         <h1 className="text-6xl font-bold">Decide the future of your DAO</h1>
         <p className="text-2xl mb-10">
@@ -61,6 +72,7 @@ const Index = () => {
         </p>
         <ConnectButton />
       </div>
+>>>>>>> de33f5eb87fea44df604430b78b4f088452a81d4
     );
   }
 
@@ -147,6 +159,41 @@ const Index = () => {
           </div>
         </div>
       </section>
+<<<<<<< HEAD
+      <div className="h-full w-full bg-black p-10">
+        <div className="mb-3 flex items-center justify-between">
+          <h1 className="text-2xl font-semibold text-white">Your DAOs</h1>
+          <div className="flex items-center gap-3">
+            <div className="rounded border border-purple-300 px-2 py-1 text-purple-300">
+              Filter
+            </div>
+            <div className="rounded border border-purple-300 px-2 py-1 text-purple-300">
+              Sort
+            </div>
+          </div>
+        </div>
+        <div className="gap-3 text-sm">
+          <IsMounted>
+            <DAOCard
+              name="Soulcialites"
+              roleTier="Active Citizen"
+              skills={["Product Design", "Solidity"]}
+              activeProposals={3}
+              expectedEarnings={1250}
+              earningsToDate={2440}
+              requests={[
+                {
+                  title: "Code review for new product",
+                  category: "blocker",
+                  guild: "Product Guild",
+                },
+              ]}
+            />
+          </IsMounted>
+        </div>
+      </div>
+=======
+>>>>>>> de33f5eb87fea44df604430b78b4f088452a81d4
     </Main>
   );
 };
