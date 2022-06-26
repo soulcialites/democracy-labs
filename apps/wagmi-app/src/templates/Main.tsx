@@ -29,11 +29,7 @@ const Main = (props: IMainProps) => (
         </div>
       </div>
 
-<<<<<<< HEAD
-      <div className="content items-center justify-center bg-neutral-200 pb-10 text-black">
-=======
       <div className="content items-center justify-center bg-neutral-200 text-black">
->>>>>>> faf139d1ab23b573b9da5f6e303de5a5654c540f
         {props.children}
       </div>
 

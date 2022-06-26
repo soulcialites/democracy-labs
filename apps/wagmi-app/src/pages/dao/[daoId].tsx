@@ -1,8 +1,9 @@
 // @ts-nocheck
-import React, { useState } from "react";
-import CitizenV1 from "@democracy-labs/governance-sol/deployments/rinkeby/CitizenV1.json";
+import { useState } from "react";
+import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
 import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
 import { useRouter } from "next/router";
+import { useContractRead } from "wagmi";
 
 import Directory from "@/components/DAO/Directory";
 import Guilds from "@/components/DAO/Guilds";
@@ -12,11 +13,6 @@ import ProposalDetail from "@/components/Modal/ProposalDetail";
 import { Main } from "@/templates/Main";
 import { Meta } from "@/templates/Meta";
 import { AppConfig } from "@/utils/AppConfig";
-import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
-import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import { useContractRead } from "wagmi";
 
 const DAOPage = () => {
   const router = useRouter();

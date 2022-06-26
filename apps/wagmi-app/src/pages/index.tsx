@@ -67,7 +67,6 @@ const Index = () => {
   }
 
   return (
-    <IsMounted>
       <Main
         meta={
           <Meta
@@ -143,7 +142,6 @@ const Index = () => {
           </div>
         </div>
     </Main>
-======
   );
 };
 
