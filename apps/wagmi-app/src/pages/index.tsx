@@ -1,5 +1,5 @@
 // @ts-nocheck
-import CitizenV1 from "@democracy-labs/governance-sol/deployments/rinkeby/CitizenV1.json";
+import CitizenV1 from "@democracy-labs/governance-sol/deployments/optimismKovan/CitizenV1.json";
 import {
   CitizenNFTCard,
   CitizensLatestCardList,

@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { useState } from "react";
-import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
+import CitizenV1 from "@democracy-labs/governance-sol/deployments/optimismKovan/CitizenV1.json";
 import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
 import { useRouter } from "next/router";
 import { useContractRead } from "wagmi";
