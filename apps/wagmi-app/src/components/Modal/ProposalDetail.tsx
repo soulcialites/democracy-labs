@@ -1,0 +1,129 @@
+import React, { Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+
+type Props = {
+  open: any;
+  setOpen: any;
+};
+
+const ProposalDetail = ({ open, setOpen }: Props) => {
+  return (
+    <Transition appear show={true} as={Fragment}>
+      <Dialog as="div" className="relative z-10" onClose={() => setOpen(false)}>
+        <Transition.Child
+          as={Fragment}
+          enter="ease-out duration-300"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="ease-in duration-200"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <div className="fixed inset-0 bg-black bg-opacity-25" />
+        </Transition.Child>
+
+        <div className="fixed inset-0 overflow-y-auto">
+          <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <Dialog.Panel className="w-full max-w-3xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Title
+                  as="h3"
+                  className="font-medium text-gray-900 text-3xl"
+                >
+                  Split payment smart contracts to pay contributor
+                </Dialog.Title>
+                <div className="space-y-3 mt-3 text-sm pb-3 border-b text-gray-600">
+                  <div className="flex">
+                    <p className="w-36">Guild</p>
+                    <p>Dev</p>
+                  </div>
+                  <div className="flex">
+                    <p className="w-36">Contributors</p>
+                    <p>Kames, Dino, Annette, George, Justin</p>
+                  </div>
+                  <div className="flex">
+                    <p className="w-36">Funds Requested</p>
+                    <p>$4,000</p>
+                  </div>
+                </div>
+
+                <div className="py-3 border-b">
+                  <h1 className="font-semibold">Proposal Rationale</h1>
+                  <p>
+                    Setting up funds to pay Development Guild contributors. The
+                    socialites has attracted lots of inbound given how awesome
+                    the product is, and the strength of the public goods. After
+                    presenting at ETH NYC, the team plans on adding additional
+                    developers to accelerate product releases.
+                  </p>
+                  <h3 className="font-semibold my-2">Product Architecture</h3>
+                  <img
+                    src={"/assets/images/Architecture.png"}
+                    className="h-60 object-contain"
+                  />
+                </div>
+                <div className="mt-2">
+                  <h1 className="font-semibold">Timeline</h1>
+
+                  <ol className="relative border-l border-gray-700">
+                    <li className="mb-10 ml-4">
+                      <div className="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -left-1.5 border border-white"></div>
+                      <time className="mb-1 text-sm font-normal leading-none text-gray-700">
+                        February 2022
+                      </time>
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        Application UI code in Tailwind CSS
+                      </h3>
+                      <p className="mb-4 text-base font-normal text-gray-700">
+                        Get access to over 20+ pages including a dashboard
+                        layout, charts, kanban board, calendar, and pre-order
+                        E-commerce &amp; Marketing pages.
+                      </p>
+                    </li>
+                    <li className="mb-10 ml-4">
+                      <div className="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -left-1.5 border border-white"></div>
+                      <time className="mb-1 text-sm font-normal leading-none text-gray-700 ">
+                        March 2022
+                      </time>
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        Marketing UI design in Figma
+                      </h3>
+                      <p className="text-base font-normal text-gray-700">
+                        All of the pages and components are first designed in
+                        Figma and we keep a parity between the two versions even
+                        as we update the project.
+                      </p>
+                    </li>
+                    <li className="ml-4">
+                      <div className="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -left-1.5 border border-white "></div>
+                      <time className="mb-1 text-sm font-normal leading-none text-gray-700 ">
+                        April 2022
+                      </time>
+                      <h3 className="text-lg font-semibold text-gray-900">
+                        E-Commerce UI code in Tailwind CSS
+                      </h3>
+                      <p className="text-base font-normal text-gray-700">
+                        Get started with dozens of web components and
+                        interactive elements built on top of Tailwind CSS.
+                      </p>
+                    </li>
+                  </ol>
+                </div>
+              </Dialog.Panel>
+            </Transition.Child>
+          </div>
+        </div>
+      </Dialog>
+    </Transition>
+  );
+};
+
+export default ProposalDetail;

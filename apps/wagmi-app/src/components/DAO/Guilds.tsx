@@ -1,6 +1,8 @@
 import React, { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useForm } from "react-hook-form";
+import { useCitizenV1ContractWrite } from "@democracy-labs/governor-alpha-wagmi";
+import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
 
 type AddGuildInputs = {
   name: string;
@@ -14,6 +16,7 @@ const Guilds = ({ guilds }: any) => {
     register,
     control,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<AddGuildInputs>({
     defaultValues: {
@@ -22,6 +25,23 @@ const Guilds = ({ guilds }: any) => {
       description: "",
     },
   });
+
+  const watchAllFields = watch();
+  const { write } = useCitizenV1ContractWrite(
+    CitizenV1.address,
+    "createGuild",
+    [watchAllFields.name, watchAllFields.symbol, watchAllFields.description]
+  );
+  const onSubmit = (_data: any) => {
+    write();
+    if (onUpdate) onUpdate(_data);
+  };
+
+  useCitizenV1ContractWrite(CitizenV1.address, "createGuild", [
+    watchAllFields.name,
+    watchAllFields.symbol,
+    watchAllFields.description,
+  ]);
 
   return (
     <div className="bg-white p-4 space-y-3 mx-10 rounded">
@@ -70,7 +90,7 @@ const Guilds = ({ guilds }: any) => {
                       Add New Guild
                     </Dialog.Title>
                     <form
-                      onSubmit={handleSubmit(() => {})}
+                      onSubmit={handleSubmit(onSubmit)}
                       className="my-2 w-full space-y-3 text-sm"
                     >
                       <div className="space-y-2">

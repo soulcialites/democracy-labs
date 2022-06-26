@@ -3,16 +3,18 @@ import { Main } from "@/templates/Main";
 import { Meta } from "@/templates/Meta";
 import { AppConfig } from "@/utils/AppConfig";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import Proposals from "@/components/DAO/Proposals";
 import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
 import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
 import Directory from "@/components/DAO/Directory";
 import Treasury from "@/components/DAO/Treasury";
+import ProposalDetail from "@/components/Modal/ProposalDetail";
 
 const DAOPage = () => {
   const router = useRouter();
   const { daoId } = router.query;
+  const [open, setOpen] = useState(false);
 
   const { data, isError, isLoading } = useCitizenV1ContractRead(
     CitizenV1.address,
@@ -91,6 +93,7 @@ const DAOPage = () => {
         <Directory guilds={data?.guilds} />
         <Treasury guilds={data?.guilds} />
       </div>
+      <ProposalDetail open={open} setOpen={setOpen} />
     </Main>
   );
 };
