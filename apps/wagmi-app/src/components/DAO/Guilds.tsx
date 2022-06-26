@@ -1,5 +1,5 @@
 // @ts-nocheck
-import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
+import CitizenV1 from "@democracy-labs/governance-sol/deployments/optimismKovan/CitizenV1.json";
 import { useCitizenV1ContractWrite } from "@democracy-labs/governor-alpha-wagmi";
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment, useState } from "react";

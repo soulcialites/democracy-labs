@@ -1,6 +1,6 @@
 // @ts-nocheck
-import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 
 type Props = {
   open: any;
@@ -72,11 +72,11 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
                   />
                 </div>
                 <div className="mt-2">
-                  <h1 className="font-semibold text-2xl">Timeline</h1>
+                  <h1 className="text-2xl font-semibold">Timeline</h1>
                   <div className="ml-2">
                     <ol className="relative border-l border-gray-700">
                       <li className="mb-10 ml-4">
-                        <div className="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -left-1.5 border border-white"></div>
+                        <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-700"></div>
                         <time className="mb-1 text-sm font-normal leading-none text-gray-700">
                           February 2022
                         </time>
@@ -88,7 +88,7 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
                         </p>
                       </li>
                       <li className="mb-10 ml-4">
-                        <div className="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -left-1.5 border border-white"></div>
+                        <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-700"></div>
                         <time className="mb-1 text-sm font-normal leading-none text-gray-700 ">
                           March 2022
                         </time>
@@ -100,7 +100,7 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
                         </p>
                       </li>
                       <li className="ml-4">
-                        <div className="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -left-1.5 border border-white "></div>
+                        <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-700 "></div>
                         <time className="mb-1 text-sm font-normal leading-none text-gray-700 ">
                           April 2022
                         </time>

@@ -1,9 +1,9 @@
 // @ts-nocheck
-import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
+import CitizenV1 from "@democracy-labs/governance-sol/deployments/optimismKovan/CitizenV1.json";
 import {
   CitizenNFTCard,
-  CitizenV1IssueFromFounder,
   CitizensLatestCardList,
+  CitizenV1IssueFromFounder,
 } from "@democracy-labs/governor-alpha-wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
@@ -67,7 +67,6 @@ const Index = () => {
   }
 
   return (
-    <IsMounted>
       <Main
         meta={
           <Meta
@@ -142,8 +141,7 @@ const Index = () => {
             />
           </div>
         </div>
-      </Main>
-    </IsMounted>
+    </Main>
   );
 };
 
