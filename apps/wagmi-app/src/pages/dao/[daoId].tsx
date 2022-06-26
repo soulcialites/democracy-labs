@@ -5,7 +5,6 @@ import { AppConfig } from "@/utils/AppConfig";
 import { useRouter } from "next/router";
 import React from "react";
 import Proposals from "@/components/DAO/Proposals";
-// import Directory from "@/components/DAO/Directory";
 import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
 import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
 import Directory from "@/components/DAO/Directory";
@@ -20,8 +19,6 @@ const DAOPage = () => {
     "getDAOStream",
     []
   );
-
-  console.log(data);
 
   return (
     <Main
@@ -87,12 +84,12 @@ const DAOPage = () => {
       </div>
 
       <div className="space-y-5">
-        <Guilds />
-        <Proposals proposals={[]} />
+        <Proposals proposals={data?.proposals} />
+        <Guilds guilds={data?.guilds} />
       </div>
       <div className="flex mt-3 gap-3 px-10">
-        <Directory />
-        <Treasury />
+        <Directory guilds={data?.guilds} />
+        <Treasury guilds={data?.guilds} />
       </div>
     </Main>
   );

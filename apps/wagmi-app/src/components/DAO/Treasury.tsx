@@ -1,8 +1,9 @@
+import { utils } from "ethers";
 import React from "react";
 
 type Props = {};
 
-const Treasury = (props: Props) => {
+const Treasury = ({ guilds }: any) => {
   return (
     <div className="rounded bg-white p-4 w-3/5 text-sm">
       <h1 className="text-2xl pb-2 font-bold">Directory</h1>
@@ -21,21 +22,13 @@ const Treasury = (props: Props) => {
         <h3 className="text-gray-500">Funds Allocated</h3>
         <h3 className="text-gray-500">Spend to Date</h3>
       </div>
-      <div className="grid grid-cols-3 py-2 border-b">
-        <h3 className="font-semibold">Executives</h3>
-        <p>$1,800</p>
-        <p>$50</p>
-      </div>
-      <div className="grid grid-cols-3 py-2 border-b">
-        <h3 className="font-semibold">Dev</h3>
-        <p>$3,500</p>
-        <p>$1,500</p>
-      </div>
-      <div className="grid grid-cols-3 py-2 border-b">
-        <h3 className="font-semibold">Marketing</h3>
-        <p>$2,500</p>
-        <p>$1,000</p>
-      </div>
+      {guilds?.map((guild) => (
+        <div className="grid grid-cols-3 py-2 border-b">
+          <h3 className="font-semibold">{guild.name}</h3>
+          <p>Ξ {utils.formatEther(guild.treasury)}</p>
+          <p>0</p>
+        </div>
+      ))}
     </div>
   );
 };

@@ -7,7 +7,7 @@ type ProposalsProps = {
 
 const Proposals = ({ proposals }: ProposalsProps) => {
   return (
-    <div className="p-4 bg-white mx-10 rounded">
+    <div className="p-4 bg-white -mt-24 mx-10 rounded">
       <h1 className="text-2xl text-black font-semibold">Recent Proposals</h1>
       <div className="relative overflow-x-auto sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">

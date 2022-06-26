@@ -8,7 +8,7 @@ type AddGuildInputs = {
   description: string;
 };
 
-const Guilds = () => {
+const Guilds = ({ guilds }: any) => {
   const [open, setOpen] = useState(false);
   const {
     register,
@@ -24,7 +24,7 @@ const Guilds = () => {
   });
 
   return (
-    <div className="bg-white p-4 space-y-3 -mt-24 mx-10 rounded">
+    <div className="bg-white p-4 space-y-3 mx-10 rounded">
       <div className="flex justify-between">
         <h1 className="text-2xl text-black font-semibold">Your Guilds</h1>
         <div
@@ -171,28 +171,19 @@ const Guilds = () => {
             </tr>
           </thead>
           <tbody>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-              >
-                Marketing
-              </th>
-              <td className="px-6 py-4 ">12</td>
-              <td className="px-6 py-4">65%</td>
-              <td className="px-6 py-4">1</td>
-            </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-              >
-                Development
-              </th>
-              <td className="px-6 py-4">18</td>
-              <td className="px-6 py-4">85%</td>
-              <td className="px-6 py-4">3</td>
-            </tr>
+            {guilds?.map((guild) => (
+              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                >
+                  {guild.name}
+                </th>
+                <td className="px-6 py-4 ">12</td>
+                <td className="px-6 py-4">65%</td>
+                <td className="px-6 py-4">1</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -214,28 +205,19 @@ const Guilds = () => {
             </tr>
           </thead>
           <tbody>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-              >
-                Executive Team
-              </th>
-              <td className="px-6 py-4 ">12</td>
-              <td className="px-6 py-4">65%</td>
-              <td className="px-6 py-4">1</td>
-            </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
-              >
-                Treasury
-              </th>
-              <td className="px-6 py-4">18</td>
-              <td className="px-6 py-4">85%</td>
-              <td className="px-6 py-4">3</td>
-            </tr>
+            {guilds?.map((guild) => (
+              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                >
+                  {guild.name}
+                </th>
+                <td className="px-6 py-4 ">12</td>
+                <td className="px-6 py-4">65%</td>
+                <td className="px-6 py-4">1</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
