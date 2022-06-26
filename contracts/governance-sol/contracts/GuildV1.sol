@@ -33,6 +33,8 @@ contract Guild is MemberV1, IGuild {
     string symbol;
     string description;
     uint256 treasury;
+    address[] members;
+    Proposal[] proposals;
   }
 
   constructor(
@@ -50,12 +52,23 @@ contract Guild is MemberV1, IGuild {
   }
 
   function getMetadata() external view returns (Metadata memory) {
+    uint256 tote = totalCitizens();
+
+    Proposal[] memory proposals_ = new Proposal[](tote);
+    address[] memory members = new address[](tote);
+    for (uint256 i1 = 0; i1 < tote; i1++) {
+      address owner_ = ownerOf(i1);
+      members[i1] = owner_;
+    }
+
     return
       Metadata({
         name: name(),
         symbol: symbol(),
         description: description,
-        treasury: address(this).balance
+        treasury: address(this).balance,
+        members: members,
+        proposals: proposals_
       });
   }
 

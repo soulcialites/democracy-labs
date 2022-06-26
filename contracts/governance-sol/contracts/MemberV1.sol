@@ -4,7 +4,7 @@ pragma solidity 0.8.15;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract MemberV1 is ERC721 {
-  uint256 public totalCitizens;
+  uint256 private totalCitizens_;
 
   mapping(address => bool) private _isCitizen;
   mapping(address => string) private _citizenDID;
@@ -17,11 +17,11 @@ contract MemberV1 is ERC721 {
 
   function issue(address to) external {
     isCitizen(to);
-    _mint(to, totalCitizens);
+    _mint(to, totalCitizens_++);
   }
 
   function revoke(uint256 citizenId) external {
-    _burn(totalCitizens);
+    _burn(citizenId);
   }
 
   function isCitizen(address citizen) public returns (bool) {
@@ -30,6 +30,10 @@ contract MemberV1 is ERC721 {
 
   function getDID(address citizen) public returns (string memory) {
     return _citizenDID[citizen];
+  }
+
+  function totalCitizens() public view returns (uint256) {
+    return totalCitizens_;
   }
 
   function setDID(string calldata did) public returns (string memory) {
