@@ -29,7 +29,7 @@ const Main = (props: IMainProps) => (
         </div>
       </div>
 
-      <div className="content justify-center items-center text-black bg-neutral-200 pb-10">
+      <div className="content justify-center items-center text-black bg-neutral-200">
         {props.children}
       </div>
 

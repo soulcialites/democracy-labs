@@ -6,7 +6,7 @@ type Props = {};
 const Treasury = ({ guilds }: any) => {
   return (
     <div className="rounded bg-white p-4 w-3/5 text-sm">
-      <h1 className="text-2xl pb-2 font-bold">Directory</h1>
+      <h1 className="text-2xl pb-2 font-bold">Treasury</h1>
       <div className="py-2 border-y grid grid-cols-2">
         <div>
           <p>Total Funds</p>
