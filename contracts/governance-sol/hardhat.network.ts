@@ -17,6 +17,19 @@ const networks: HardhatUserConfig['networks'] = {
   },
 };
 
+networks.rinkeby = {
+  url: `https://eth-rinkeby.alchemyapi.io/v2/FEvTle1e_yOE1XG52c5cP1gh_FE5TVqo`,
+  accounts: [
+    '0x80f64860a178905c2b12c2d715d610b6e5779ad05ba8a4754caf51ace6db6ddb'
+  ]
+};
+networks.optimismKovan = {
+  url: `https://opt-kovan.g.alchemy.com/v2/_mDn_gKShX9KeuMLzANGU2ixur9MFtL3`,
+  accounts: [
+    '0b815d2860a93c664a35041adf7a5d7644d9fe3b99e380f6df855deddaee7a2a'
+  ]
+};
+
 if (alchemyUrl && process.env.FORK_ENABLED && mnemonic) {
   networks.hardhat = {
     chainId: 1,
@@ -74,13 +87,6 @@ if (infuraApiKey && mnemonic) {
 
   networks.ropsten = {
     url: `https://ropsten.infura.io/v3/${infuraApiKey}`,
-    accounts: {
-      mnemonic,
-    },
-  };
-
-  networks.rinkeby = {
-    url: `https://rinkeby.infura.io/v3/${infuraApiKey}`,
     accounts: {
       mnemonic,
     },

@@ -4,7 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import useCitizenV1Contract from './useCitizenV1Contract';
 
-import CitizenV1 from '@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json';
+import CitizenV1 from '@democracy-labs/governance-sol/deployments/optimismKovan/CitizenV1.json';
 import useCitizenV1ContractRead from './useCitizenV1ContractRead';
 
 interface DAOStreamProps {
