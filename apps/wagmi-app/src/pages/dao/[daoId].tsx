@@ -4,7 +4,7 @@ import CitizenV1 from "@democracy-labs/governance-sol/deployments/optimismKovan/
 import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
 import { useRouter } from "next/router";
 import { useContractRead } from "wagmi";
-
+import SuperfluidTokenABI from "@democracy-labs/governance-sol/artifacts/contracts/ISuperfluidToken.sol/ISuperfluidToken.json";
 import Directory from "@/components/DAO/Directory";
 import Guilds from "@/components/DAO/Guilds";
 import Proposals from "@/components/DAO/Proposals";
@@ -25,12 +25,16 @@ const DAOPage = () => {
     []
   );
 
-  const { data: treasury } = useContractRead(
-    "0x04d4f73e9DE52a8fEC544087a66BBbA660A35957",
+  const { data: treasury, error: asError } = useContractRead(
+    {
+      addressOrName: "0x04d4f73e9DE52a8fEC544087a66BBbA660A35957",
+      contractInterface: SuperfluidTokenABI.abi,
+    },
     "realtimeBalanceOfNow",
-    []
+    {
+      args: ["0xEB53Ad75cF46613C7945e8B2C0cd37a4d65504Fe"],
+    }
   );
-  console.log(treasury);
 
   return (
     <Main
@@ -101,7 +105,7 @@ const DAOPage = () => {
       </div>
       <div className="mt-3 flex gap-3 px-10">
         <Directory guilds={data?.guilds} />
-        <Treasury guilds={data?.guilds} />
+        <Treasury guilds={data?.guilds} treasury={treasury} />
       </div>
       <ProposalDetail open={open} setOpen={setOpen} />
     </Main>
