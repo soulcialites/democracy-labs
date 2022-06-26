@@ -9,6 +9,7 @@ import Proposals from "@/components/DAO/Proposals";
 import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
 import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
 import Directory from "@/components/DAO/Directory";
+import Treasury from "@/components/DAO/Treasury";
 
 const DAOPage = () => {
   const router = useRouter();
@@ -21,15 +22,6 @@ const DAOPage = () => {
   );
 
   console.log(data);
-
-  // const { data, loading, error } = useCitizenV1ContractRead(
-  //   CitizenV1.address,
-  //   "getDAOStream",
-  //   []
-  // );
-
-  // console.log("Data", data);
-  // console.log("Error:", error);
 
   return (
     <Main
@@ -93,6 +85,7 @@ const DAOPage = () => {
       </div>
       <div className="flex mt-3 gap-3 px-10">
         <Directory />
+        <Treasury />
       </div>
     </Main>
   );

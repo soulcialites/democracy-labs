@@ -5,7 +5,7 @@ type Props = {};
 const Directory = (props: Props) => {
   return (
     <div className="rounded bg-white p-4 w-2/5 text-sm">
-      <h1 className="text-2xl pb-2">Directory</h1>
+      <h1 className="text-2xl pb-2 font-bold">Directory</h1>
       <div className="grid grid-cols-3 py-2 border-y font-medium">
         <h3>Executive Guild</h3>
         <h3 className="text-gray-500">Weighted Voice</h3>
