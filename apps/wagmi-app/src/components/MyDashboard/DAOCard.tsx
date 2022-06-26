@@ -38,13 +38,13 @@ const DAOCard = ({
       </div>
       <div className="flex items-center gap-10 mb-3">
         <div>
-          <p className="">Tier</p>
+          <p className="text-black py-2">Tier</p>
           <div className="rounded-full border px-2 py-1 border-black text-black">
             {roleTier}
           </div>
         </div>
         <div>
-          <p className="">Contributing Skills</p>
+          <p className="text-black py-2">Contributing Skills</p>
           <div className="flex gap-2">
             {skills.map((skill) => (
               <div className="rounded-full r border px-2 py-1 border-black text-black">
@@ -56,13 +56,13 @@ const DAOCard = ({
       </div>
       <div className="flex items-center gap-10">
         <div>
-          <p className="">Active Proposals</p>
+          <p className="text-black pt-2">Active Proposals</p>
           <h1 className="font-semibold text-4xl text-black">
             {activeProposals}
           </h1>
         </div>
         <div>
-          <p className="">Expected Earnings</p>
+          <p className="text-black pt-2">Expected Earnings</p>
           <h1 className="font-semibold text-4xl text-black">
             {expectedEarnings.toLocaleString("en-US", {
               style: "currency",
@@ -72,7 +72,7 @@ const DAOCard = ({
           </h1>
         </div>
         <div>
-          <p className="">Earnings to Date</p>
+          <p className="text-black pt-2">Earnings to Date</p>
           <h1 className="font-semibold text-4xl text-black">
             {earningsToDate.toLocaleString("en-US", {
               style: "currency",
@@ -83,7 +83,7 @@ const DAOCard = ({
         </div>
       </div>
       <div>
-        <p>Requests</p>
+        <p className="text-black pt-2">Requests</p>
         {requests.map((request) => (
           <div className="group">
             <h2 className="font-bold text-lg text-black group-hover:underline">

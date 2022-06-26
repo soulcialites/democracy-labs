@@ -8,19 +8,27 @@ import Proposals from "@/components/DAO/Proposals";
 import { Main } from "@/templates/Main";
 import { Meta } from "@/templates/Meta";
 import { AppConfig } from "@/utils/AppConfig";
+<<<<<<< HEAD
+=======
+import { useRouter } from "next/router";
+import React from "react";
+import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
+// import { CitizenV1 } from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
+import Proposals from "@/components/DAO/Proposals";
+>>>>>>> de33f5eb87fea44df604430b78b4f088452a81d4
 
 const DAOPage = () => {
   const router = useRouter();
   const { daoId } = router.query;
 
-  const { data, loading, error } = useCitizenV1ContractRead(
-    CitizenV1.address,
-    "issue",
-    ["0x3417aD1d79D9508912E8d7f3B9167085500b12CE", "test"]
-  );
+  // const { data, loading, error } = useCitizenV1ContractRead(
+  //   CitizenV1.address,
+  //   "getDAOStream",
+  //   []
+  // );
 
-  console.log(data, "data");
-  console.log("Error:", error);
+  // console.log("Data", data);
+  // console.log("Error:", error);
 
   return (
     <Main
