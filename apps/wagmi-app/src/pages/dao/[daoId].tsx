@@ -10,6 +10,7 @@ import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
 import Directory from "@/components/DAO/Directory";
 import Treasury from "@/components/DAO/Treasury";
 import ProposalDetail from "@/components/Modal/ProposalDetail";
+import { useContractRead } from "wagmi";
 
 const DAOPage = () => {
   const router = useRouter();
@@ -19,6 +20,12 @@ const DAOPage = () => {
   const { data, isError, isLoading } = useCitizenV1ContractRead(
     CitizenV1.address,
     "getDAOStream",
+    []
+  );
+
+  const { data: treasury } = useContractRead(
+    [placeAddress],
+    "realtimeBalanceOfNow",
     []
   );
 

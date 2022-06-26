@@ -6,7 +6,7 @@ type Props = {
 
 const Directory = ({ guilds }: Props) => {
   return (
-    <div className="rounded bg-white p-4 w-2/5 text-sm">
+    <div className="rounded bg-white p-4 w-2/5 text-sm mb-10">
       <h1 className="text-2xl pb-2 font-bold">Directory</h1>
       {guilds?.map((guild) => (
         <>
