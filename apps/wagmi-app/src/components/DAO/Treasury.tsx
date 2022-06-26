@@ -5,6 +5,10 @@ import React from "react";
 type Props = {};
 
 const Treasury = ({ guilds }: any) => {
+
+  
+
+
   return (
     <div className="rounded h-80 bg-white p-4 w-3/5 text-sm mb-10">
       <h1 className="text-2xl pb-2 font-bold">Treasury</h1>

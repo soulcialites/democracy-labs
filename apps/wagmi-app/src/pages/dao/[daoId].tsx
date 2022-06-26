@@ -18,17 +18,18 @@ const DAOPage = () => {
   const { daoId } = router.query;
   const [open, setOpen] = useState(false);
 
-  const { data, isError, isLoading } = useCitizenV1ContractRead(
+  const { data, loading, error } = useCitizenV1ContractRead(
     CitizenV1.address,
     "getDAOStream",
     []
   );
 
-  // const { data: treasury } = useContractRead(
-  //   [placeAddress],
-  //   "realtimeBalanceOfNow",
-  //   []
-  // );
+  const { data: treasury } = useContractRead(
+    "0x04d4f73e9DE52a8fEC544087a66BBbA660A35957",
+    "realtimeBalanceOfNow",
+    []
+  );
+  console.log(treasury);
 
   return (
     <Main

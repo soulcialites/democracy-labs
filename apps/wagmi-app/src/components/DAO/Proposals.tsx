@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React from "react";
+import React, { useState } from "react";
 
 import type { Proposal } from "@/pages";
 
@@ -9,6 +9,7 @@ type ProposalsProps = {
 };
 
 const Proposals = ({ proposals, setOpen }: ProposalsProps) => {
+  const [check, setCheck] = useState(false);
   return (
     <div className="mx-10 -mt-24 rounded bg-white p-4">
       <h1 className="text-2xl font-semibold text-black">Recent Proposals</h1>
@@ -55,11 +56,16 @@ const Proposals = ({ proposals, setOpen }: ProposalsProps) => {
                 <p className="text-xs text-gray-500">Ends July 4, 2022</p>
                 <div className="mt-1 flex items-center gap-10">
                   <div className="flex items-center gap-2">
-                    <div className="h-7 w-7 items-center justify-center rounded-full border border-green-400 text-center align-middle">
+                    <div
+                      className={`h-7 w-7 items-center justify-center rounded-full border cursor-pointer border-green-400 text-center align-middle ${
+                        check ? "bg-green-400" : "bg-transparent"
+                      }`}
+                      onClick={() => setCheck(!check)}
+                    >
                       <p className="mt-0.5">👍</p>
                     </div>
                     <div className="font-bold leading-3 text-green-400">
-                      <p>50</p>
+                      <p>{50}</p>
                       <p>Voted Yes</p>
                     </div>
                   </div>
@@ -68,7 +74,7 @@ const Proposals = ({ proposals, setOpen }: ProposalsProps) => {
                       <p className="mt-0.5">👎</p>
                     </div>
                     <div className="font-bold leading-3 text-red-400">
-                      <p>50</p>
+                      <p>7</p>
                       <p>Voted No</p>
                     </div>
                   </div>
@@ -77,7 +83,7 @@ const Proposals = ({ proposals, setOpen }: ProposalsProps) => {
                       <p className="mt-0.5">🙊</p>
                     </div>
                     <div className="font-bold leading-3 text-purple-400">
-                      <p>50</p>
+                      <p>2</p>
                       <p>Abstained</p>
                     </div>
                   </div>
