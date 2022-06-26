@@ -86,7 +86,7 @@ const DAOPage = () => {
       </div>
 
       <div className="space-y-5">
-        <Proposals proposals={data?.proposals} />
+        <Proposals proposals={data?.proposals} setOpen={setOpen} />
         <Guilds guilds={data?.guilds} />
       </div>
       <div className="flex mt-3 gap-3 px-10">

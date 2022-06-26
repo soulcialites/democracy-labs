@@ -3,9 +3,10 @@ import React from "react";
 
 type ProposalsProps = {
   proposals: Proposal[];
+  setOpen: any;
 };
 
-const Proposals = ({ proposals }: ProposalsProps) => {
+const Proposals = ({ proposals, setOpen }: ProposalsProps) => {
   return (
     <div className="p-4 bg-white -mt-24 mx-10 rounded">
       <h1 className="text-2xl text-black font-semibold">Recent Proposals</h1>
@@ -33,7 +34,10 @@ const Proposals = ({ proposals }: ProposalsProps) => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
               >
-                <div className="flex items-center gap-2 hover:underline cursor-pointer">
+                <div
+                  className="flex items-center gap-2 hover:underline cursor-pointer"
+                  onClick={() => setOpen(true)}
+                >
                   <img src={"/assets/icons/Arrow.svg"} className="h-4 w-4" />
                   <h2 className="text-base">
                     Launching our social media channel
