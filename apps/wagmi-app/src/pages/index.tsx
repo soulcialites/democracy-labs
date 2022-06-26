@@ -1,4 +1,4 @@
-// import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
+import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
 import {
   CitizenNFTCard,
   CitizensLatestCardList,
@@ -13,7 +13,6 @@ import DAOCard from "@/components/MyDashboard/DAOCard";
 import { Main } from "@/templates/Main";
 import { Meta } from "@/templates/Meta";
 import { AppConfig } from "@/utils/AppConfig";
-// import { GovernorAlphaPropose } from '@democracy-labs/governor-alpha-wagmi'
 
 type UserDAOs = {
   daos: DAO[];
@@ -103,26 +102,24 @@ const Index = () => {
           />
         </div>
       </div>
-
       <div className="bg-white max-w-4xl space-y-5 mx-auto my-5 p-4 text-black rounded">
         <h1 className="text-2xl">Create New Society</h1>
 
         <section>
           <div className="container mx-auto max-w-md">
             <div className="bg-neutral-500">
-              <h3>Add </h3>
+              <h3>Add</h3>
             </div>
           </div>
         </section>
       </div>
-
       <section className="py-10">
         <div className="container mx-auto max-w-screen-md">
           <div className="card">
             <h3 className="text-4xl font-normal">Add Member/Citizen</h3>
             <p className="">Managed by Founding Team</p>
             <hr className="my-3 opacity-5" />
-            {/* <CitizenV1IssueFromFounder contract={CitizenV1.address} /> */}
+            <CitizenV1IssueFromFounder contract={CitizenV1.address} />
           </div>
         </div>
       </section>
@@ -132,51 +129,19 @@ const Index = () => {
             <h3 className="text-4xl font-normal">Latest Citizens</h3>
             <hr className="my-3 opacity-5" />
             <IsMounted>
-              {/* <CitizensLatestCardList contract={CitizenV1.address} /> */}
-              {/* <div className="grid grid-cols-12 gap-x-4">
+              <CitizensLatestCardList contract={CitizenV1.address} />
+              <div className="grid grid-cols-12 gap-x-4">
                 <div className="col-span-4">
                   <CitizenNFTCard contract={CitizenV1.address} />
                 </div>
                 <div className="col-span-4">
                   <CitizenNFTCard contract={CitizenV1.address} tokenId="2" />
                 </div>
-              </div> */}
+              </div>
             </IsMounted>
           </div>
         </div>
       </section>
-      <div className="h-full w-full bg-black p-10">
-        <div className="mb-3 flex items-center justify-between">
-          <h1 className="text-2xl font-semibold text-white">Your DAOs</h1>
-          <div className="flex items-center gap-3">
-            <div className="rounded border border-purple-300 px-2 py-1 text-purple-300">
-              Filter
-            </div>
-            <div className="rounded border border-purple-300 px-2 py-1 text-purple-300">
-              Sort
-            </div>
-          </div>
-        </div>
-        <div className="gap-3 text-sm">
-          <IsMounted>
-            <DAOCard
-              name="Soulcialites"
-              roleTier="Active Citizen"
-              skills={["Product Design", "Solidity"]}
-              activeProposals={3}
-              expectedEarnings={1250}
-              earningsToDate={2440}
-              requests={[
-                {
-                  title: "Code review for new product",
-                  category: "blocker",
-                  guild: "Product Guild",
-                },
-              ]}
-            />
-          </IsMounted>
-        </div>
-      </div>
     </Main>
   );
 };
