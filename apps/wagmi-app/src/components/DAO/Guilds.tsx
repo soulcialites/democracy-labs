@@ -1,8 +1,9 @@
-import React, { useState, Fragment } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import { useForm } from "react-hook-form";
-import { useCitizenV1ContractWrite } from "@democracy-labs/governor-alpha-wagmi";
+// @ts-nocheck
 import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
+import { useCitizenV1ContractWrite } from "@democracy-labs/governor-alpha-wagmi";
+import { Dialog, Transition } from "@headlessui/react";
+import React, { Fragment, useState } from "react";
+import { useForm } from "react-hook-form";
 
 type AddGuildInputs = {
   name: string;
@@ -44,11 +45,11 @@ const Guilds = ({ guilds }: any) => {
   ]);
 
   return (
-    <div className="bg-white p-4 space-y-3 mx-10 rounded">
+    <div className="mx-10 space-y-3 rounded bg-white p-4">
       <div className="flex justify-between">
-        <h1 className="text-2xl text-black font-semibold">Your Guilds</h1>
+        <h1 className="text-2xl font-semibold text-black">Your Guilds</h1>
         <div
-          className="px-3 py-1 border rounded-full bg-gray-200 hover:bg-purple-200 cursor-pointer"
+          className="cursor-pointer rounded-full border bg-gray-200 px-3 py-1 hover:bg-purple-200"
           onClick={() => setOpen(true)}
         >
           Add New Guild
@@ -82,7 +83,7 @@ const Guilds = ({ guilds }: any) => {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <Dialog.Panel className="w-full max-w-md overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                     <Dialog.Title
                       as="h3"
                       className="text-xl font-medium leading-6 text-gray-900"
@@ -95,7 +96,7 @@ const Guilds = ({ guilds }: any) => {
                     >
                       <div className="space-y-2">
                         <label className="font-medium">Name</label>
-                        <div className="relative flex items-center text-sm text-gray-500 focus-within:text-district-green">
+                        <div className="focus-within:text-district-green relative flex items-center text-sm text-gray-500">
                           <input
                             {...register("name", {
                               required: "Please provide a name for your Guild",
@@ -118,7 +119,7 @@ const Guilds = ({ guilds }: any) => {
                           {errors.name?.message}
                         </p>
                         <label className="font-medium">Symbol</label>
-                        <div className="relative flex items-center text-sm text-gray-500 focus-within:text-district-green">
+                        <div className="focus-within:text-district-green relative flex items-center text-sm text-gray-500">
                           <input
                             {...register("symbol", {
                               required:
@@ -142,7 +143,7 @@ const Guilds = ({ guilds }: any) => {
                           {errors.symbol?.message}
                         </p>
                         <label className="font-medium">Description</label>
-                        <div className="relative flex items-center text-sm text-gray-500 focus-within:text-district-green">
+                        <div className="focus-within:text-district-green relative flex items-center text-sm text-gray-500">
                           <input
                             {...register("description")}
                             placeholder="Erlich Bachman's Vacation Fund"
@@ -175,8 +176,8 @@ const Guilds = ({ guilds }: any) => {
       </div>
 
       <div className="relative overflow-x-auto sm:rounded-lg">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
+          <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3"></th>
               <th scope="col" className="px-6 py-3">
@@ -192,10 +193,10 @@ const Guilds = ({ guilds }: any) => {
           </thead>
           <tbody>
             {guilds?.map((guild) => (
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                  className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                 >
                   {guild.name}
                 </th>
@@ -207,10 +208,10 @@ const Guilds = ({ guilds }: any) => {
           </tbody>
         </table>
       </div>
-      <h1 className="text-2xl text-black font-semibold">Other Guilds</h1>
+      <h1 className="text-2xl font-semibold text-black">Other Guilds</h1>
       <div className="relative overflow-x-auto sm:rounded-lg">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
+          <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3"></th>
               <th scope="col" className="px-6 py-3">
@@ -226,10 +227,10 @@ const Guilds = ({ guilds }: any) => {
           </thead>
           <tbody>
             {guilds?.map((guild) => (
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                  className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
                 >
                   {guild.name}
                 </th>

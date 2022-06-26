@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 
 type Props = {
@@ -10,7 +11,7 @@ const Directory = ({ guilds }: Props) => {
       <h1 className="text-2xl pb-2 font-bold">Directory</h1>
       {guilds?.map((guild) => (
         <>
-          <div className="grid grid-cols-3 py-2 border-y font-medium">
+          <div className="grid grid-cols-3 border-y py-2 font-medium">
             <h3>{guild.name}</h3>
             <h3 className="text-gray-500">Weighted Voice</h3>
             <h3 className="text-gray-500">Delivered Proposals</h3>

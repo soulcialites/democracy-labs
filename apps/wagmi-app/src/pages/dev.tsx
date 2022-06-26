@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { DAOStream } from "@democracy-labs/governor-alpha-wagmi";
 
 import { IsMounted } from "@/components/IsMounated";

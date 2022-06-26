@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { utils } from "ethers";
 import React from "react";
 
@@ -5,7 +6,7 @@ type Props = {};
 
 const Treasury = ({ guilds }: any) => {
   return (
-    <div className="rounded bg-white p-4 w-3/5 text-sm mb-10">
+    <div className="rounded bg-white p-4 w-3/5 text-sm">
       <h1 className="text-2xl pb-2 font-bold">Treasury</h1>
       <div className="py-2 border-y grid grid-cols-2">
         <div>
@@ -17,13 +18,13 @@ const Treasury = ({ guilds }: any) => {
           <h2 className="text-3xl font-semibold">$2,509</h2>
         </div>
       </div>
-      <div className="py-2 border-b grid grid-cols-3">
+      <div className="grid grid-cols-3 border-b py-2">
         <h3 className="text-gray-500">Guilds</h3>
         <h3 className="text-gray-500">Funds Allocated</h3>
         <h3 className="text-gray-500">Spend to Date</h3>
       </div>
       {guilds?.map((guild) => (
-        <div className="grid grid-cols-3 py-2 border-b">
+        <div className="grid grid-cols-3 border-b py-2">
           <h3 className="font-semibold">{guild.name}</h3>
           <p>Ξ {utils.formatEther(guild.treasury)}</p>
           <p>0</p>

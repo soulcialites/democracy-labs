@@ -73,15 +73,15 @@ contract CitizenV1 is ERC721, AccessControl {
     return DAOView({ founders: dao.founders, guilds: guildMetadata, proposals: guildProposals });
   }
 
-  function getDAO(address guild) public payable returns (DAOStorage memory daoInfo) {
+  function getDAO(address guild) external view returns (DAOStorage memory daoInfo) {
     return dao;
   }
 
-  function getGuilds() external returns (address[] memory) {
+  function getGuilds() external view returns (address[] memory) {
     return dao.guilds;
   }
 
-  function getFounders() external returns (address[] memory) {
+  function getFounders() external view returns (address[] memory) {
     return dao.founders;
   }
 
