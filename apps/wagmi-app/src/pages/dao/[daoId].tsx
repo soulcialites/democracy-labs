@@ -5,21 +5,21 @@ import { AppConfig } from "@/utils/AppConfig";
 import { useRouter } from "next/router";
 import React from "react";
 import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
-import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
+// import { CitizenV1 } from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
 import Proposals from "@/components/DAO/Proposals";
 
 const DAOPage = () => {
   const router = useRouter();
   const { daoId } = router.query;
 
-  const { data, loading, error } = useCitizenV1ContractRead(
-    CitizenV1.address,
-    "getDAOStream",
-    []
-  );
+  // const { data, loading, error } = useCitizenV1ContractRead(
+  //   CitizenV1.address,
+  //   "getDAOStream",
+  //   []
+  // );
 
-  console.log("Data", data);
-  console.log("Error:", error);
+  // console.log("Data", data);
+  // console.log("Error:", error);
 
   return (
     <Main
