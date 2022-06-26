@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
+// @ts-nocheck
 import { Dialog, Transition } from "@headlessui/react";
+import React, { Fragment } from "react";
 
 type Props = {
   open: any;
@@ -33,14 +34,14 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-3xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="w-full max-w-3xl overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                 <Dialog.Title
                   as="h3"
-                  className="font-medium text-gray-900 text-3xl"
+                  className="text-3xl font-medium text-gray-900"
                 >
                   Split payment smart contracts to pay contributor
                 </Dialog.Title>
-                <div className="space-y-3 mt-3 text-sm pb-3 border-b text-gray-600">
+                <div className="mt-3 space-y-3 border-b pb-3 text-sm text-gray-600">
                   <div className="flex">
                     <p className="w-36">Guild</p>
                     <p>Dev</p>
@@ -55,7 +56,7 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
                   </div>
                 </div>
 
-                <div className="py-3 border-b">
+                <div className="border-b py-3">
                   <h1 className="font-semibold">Proposal Rationale</h1>
                   <p>
                     Setting up funds to pay Development Guild contributors. The
@@ -64,7 +65,7 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
                     presenting at ETH NYC, the team plans on adding additional
                     developers to accelerate product releases.
                   </p>
-                  <h3 className="font-semibold my-2">Product Architecture</h3>
+                  <h3 className="my-2 font-semibold">Product Architecture</h3>
                   <img
                     src={"/assets/images/Architecture.png"}
                     className="h-60 object-contain"
@@ -75,7 +76,7 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
 
                   <ol className="relative border-l border-gray-700">
                     <li className="mb-10 ml-4">
-                      <div className="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -left-1.5 border border-white"></div>
+                      <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-700"></div>
                       <time className="mb-1 text-sm font-normal leading-none text-gray-700">
                         February 2022
                       </time>
@@ -89,7 +90,7 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
                       </p>
                     </li>
                     <li className="mb-10 ml-4">
-                      <div className="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -left-1.5 border border-white"></div>
+                      <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-700"></div>
                       <time className="mb-1 text-sm font-normal leading-none text-gray-700 ">
                         March 2022
                       </time>
@@ -103,7 +104,7 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
                       </p>
                     </li>
                     <li className="ml-4">
-                      <div className="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -left-1.5 border border-white "></div>
+                      <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-700 "></div>
                       <time className="mb-1 text-sm font-normal leading-none text-gray-700 ">
                         April 2022
                       </time>

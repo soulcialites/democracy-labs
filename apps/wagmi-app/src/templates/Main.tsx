@@ -1,8 +1,8 @@
+// @ts-nocheck
 import type { ReactNode } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
 
-import { ColorMode } from "@/components/App/ColorMode";
 import { AppConfig } from "@/utils/AppConfig";
 
 type IMainProps = {
@@ -18,7 +18,7 @@ const Main = (props: IMainProps) => (
       <div className="flex items-center justify-between  px-8 py-4">
         <div className=" align-center flex items-center justify-between">
           <Link href="/">
-            <span className="text-xl cursor-pointer font-bold text-white">
+            <span className="cursor-pointer text-xl font-bold text-white">
               <span className="text-3l">{AppConfig.emoji}</span>{" "}
               {AppConfig.title}
             </span>
@@ -29,12 +29,12 @@ const Main = (props: IMainProps) => (
         </div>
       </div>
 
-      <div className="content justify-center items-center text-black bg-neutral-200 pb-10">
+      <div className="content items-center justify-center bg-neutral-200 pb-10 text-black">
         {props.children}
       </div>
 
       <div className="border-t border-gray-300 bg-black py-8 text-center text-sm">
-        <p className="text-base mb-2">Annette, Dino, Justin, Kames</p>
+        <p className="mb-2 text-base">Annette, Dino, Justin, Kames</p>
         <div>© Copyright {new Date().getFullYear()} Kames Geraghty</div>
       </div>
     </div>
