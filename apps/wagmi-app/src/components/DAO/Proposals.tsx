@@ -36,7 +36,10 @@ const Proposals = ({ proposals, setOpen }: ProposalsProps) => {
                 scope="row"
                 className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
               >
-                <div className="flex cursor-pointer items-center gap-2 hover:underline">
+                <div
+                  className="flex cursor-pointer items-center gap-2 hover:underline"
+                  onClick={() => setOpen(true)}
+                >
                   <img src={"/assets/icons/Arrow.svg"} className="h-4 w-4" />
                   <h2 className="text-base">
                     Launching our social media channel
@@ -86,7 +89,10 @@ const Proposals = ({ proposals, setOpen }: ProposalsProps) => {
                 scope="row"
                 className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
               >
-                <div className="flex cursor-pointer items-center gap-2 hover:underline">
+                <div
+                  className="flex cursor-pointer items-center gap-2 hover:underline"
+                  onClick={() => setOpen(true)}
+                >
                   <img src={"/assets/icons/Arrow.svg"} className="h-4 w-4" />
                   <h2 className="text-base">
                     Finalize partnership with Optimism

@@ -19,7 +19,7 @@ const Main = (props: IMainProps) => (
         <div className=" align-center flex items-center justify-between">
           <Link href="/">
             <span className="cursor-pointer text-xl font-bold text-white">
-              <span className="text-3l">{AppConfig.emoji}</span>{" "}
+              <span className="text-3l">{AppConfig.emoji}</span>
               {AppConfig.title}
             </span>
           </Link>
@@ -34,7 +34,7 @@ const Main = (props: IMainProps) => (
       </div>
 
       <div className="border-t border-gray-300 bg-black py-8 text-center text-sm">
-        <p className="mb-2 text-base">Annette, Dino, Justin, Kames</p>
+        <p className="mb-2 text-base">Annette, Dino, George, Justin, Kames</p>
         <div>© Copyright {new Date().getFullYear()} Kames Geraghty</div>
       </div>
     </div>

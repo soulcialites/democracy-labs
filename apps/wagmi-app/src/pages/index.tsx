@@ -7,7 +7,7 @@ import {
 } from "@democracy-labs/governor-alpha-wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
-
+import { useContractRead } from "wagmi";
 import IsMounted from "@/components/IsMounated";
 import DAOCard from "@/components/MyDashboard/DAOCard";
 import { Main } from "@/templates/Main";
@@ -42,15 +42,19 @@ export interface Proposal {
   parentGuild: string;
   parentDAO: string;
   isActive: boolean;
-  timeline: Timeline;
-}
-
-interface Timeline {
-  time: string;
+  timeline: string;
 }
 
 const Index = () => {
   const { data } = useAccount();
+
+  const { data: treasury } = useContractRead(
+    "jbass.eth",
+    "realtimeBalanceOfNow",
+    []
+  );
+
+  console.log(treasury);
 
   if (!data) {
     return (
