@@ -1,34 +1,27 @@
-import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
-import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
-import { useRouter } from "next/router";
-import React from "react";
-
 import Guilds from "@/components/DAO/Guilds";
-import Proposals from "@/components/DAO/Proposals";
 import { Main } from "@/templates/Main";
 import { Meta } from "@/templates/Meta";
 import { AppConfig } from "@/utils/AppConfig";
-<<<<<<< HEAD
-=======
 import { useRouter } from "next/router";
 import React from "react";
-import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
-// import { CitizenV1 } from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
 import Proposals from "@/components/DAO/Proposals";
->>>>>>> de33f5eb87fea44df604430b78b4f088452a81d4
+// import Directory from "@/components/DAO/Directory";
+import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
+import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
+import Directory from "@/components/DAO/Directory";
+import Treasury from "@/components/DAO/Treasury";
 
 const DAOPage = () => {
   const router = useRouter();
   const { daoId } = router.query;
 
-  // const { data, loading, error } = useCitizenV1ContractRead(
-  //   CitizenV1.address,
-  //   "getDAOStream",
-  //   []
-  // );
+  const { data, isError, isLoading } = useCitizenV1ContractRead(
+    CitizenV1.address,
+    "getDAOStream",
+    []
+  );
 
-  // console.log("Data", data);
-  // console.log("Error:", error);
+  console.log(data);
 
   return (
     <Main
@@ -40,14 +33,14 @@ const DAOPage = () => {
       }
     >
       <div className="w-full bg-black p-10 pb-32">
-        <h1 className="mb-3 text-2xl font-semibold text-white">
+        <h1 className="text-white text-2xl font-semibold mb-3">
           {daoId} DAO Overview
         </h1>
         <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-baseline gap-3 bg-gray-800 p-4">
+          <div className="bg-gray-800 p-4 flex items-baseline gap-3">
             <div>
-              <h1 className="text-4xl font-bold text-white">4</h1>
-              <p className="text-sm text-white">Active Proposals</p>
+              <h1 className="text-4xl text-white font-bold">4</h1>
+              <p className="text-white text-sm">Active Proposals</p>
             </div>
             <div>
               <progress
@@ -58,20 +51,20 @@ const DAOPage = () => {
               <p className="text-sm text-white">202 / 285 Complete</p>
             </div>
           </div>
-          <div className="flex bg-gray-800 p-4">
+          <div className="bg-gray-800 p-4 flex">
             <div>
-              <h1 className="text-4xl font-bold text-white">$24,200</h1>
+              <h1 className="text-4xl text-white font-bold">$24,200</h1>
               <p className="text-sm text-white">Total funds in Treasury</p>
             </div>
           </div>
-          <div className="flex bg-gray-800 p-4">
+          <div className="bg-gray-800 p-4 flex">
             <div>
-              <h1 className="text-4xl font-bold text-white">2347</h1>
+              <h1 className="text-4xl text-white font-bold">2347</h1>
               <p className="text-sm text-white">DAO Members</p>
             </div>
           </div>
         </div>
-        <div className="mt-3 rounded bg-white p-4">
+        <div className="bg-white rounded p-4 mt-3">
           <h1 className="font-bold text-black">KPIs</h1>
           <div className="flex items-center gap-3">
             <div>
@@ -89,6 +82,10 @@ const DAOPage = () => {
       <div className="space-y-5">
         <Guilds />
         <Proposals proposals={[]} />
+      </div>
+      <div className="flex mt-3 gap-3 px-10">
+        <Directory />
+        <Treasury />
       </div>
     </Main>
   );

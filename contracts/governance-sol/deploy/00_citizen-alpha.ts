@@ -9,12 +9,19 @@ export default async function deploy(hardhat: HardhatRuntimeEnvironment) {
   const cv1 = await deploy("CitizenV1", {
     contract: "CitizenV1",
     from: deployer,
-    args: [['0x0fB374787B0bB7e62bD82A1B020b12fa239aB788'], "0x0fB374787B0bB7e62bD82A1B020b12fa239aB788"],
+    args: [
+      ["0x0fB374787B0bB7e62bD82A1B020b12fa239aB788", "0x3417aD1d79D9508912E8d7f3B9167085500b12CE"],
+      "0x0fB374787B0bB7e62bD82A1B020b12fa239aB788",
+    ],
     skipIfAlreadyDeployed: true,
     log: true,
   });
+<<<<<<< HEAD
 
   const contract = await ethers.getContractAt('CitizenV1',cv1.address);
 
   await contract.createGuild('The Soulcialites', 'Souls', 'A Sybil Resistant DAO Governance Architecture');
 }
+=======
+}
+>>>>>>> b6c6e283c7faefab5c9ef37b467769fe6566bb94
