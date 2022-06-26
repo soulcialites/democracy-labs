@@ -25,19 +25,21 @@ export default async function deploy(hardhat: HardhatRuntimeEnvironment) {
     "Souls",
     "A Sybil Resistant DAO Governance Architecture",
     {
-      value: utils.parseEther("1"),
+      value: utils.parseEther("0"),
+      gasLimit: 6000000
     }
   );
   await contract.createGuild("Treasury", "Tsr", "Treasury Guild", {
-    value: utils.parseEther("252"),
+    value: utils.parseEther("0"),
+    gasLimit: 6000000
   });
   await contract.createGuild("Product", "Prod", "Product Guild", {
-    value: utils.parseEther("252"),
+    value: utils.parseEther("0"),
+    gasLimit: 6000000
   });
 
   const guilds = await contract.getGuilds();
 
-  console.log(guilds, "guilds");
 
   for (let i1 = 0; i1 < guilds.length; i1++) {
     let contract = await ethers.getContractAt("MemberV1", guilds[i1]);
