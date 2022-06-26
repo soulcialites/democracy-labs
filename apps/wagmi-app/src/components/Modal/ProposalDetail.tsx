@@ -56,13 +56,8 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
                   </div>
                 </div>
 
-<<<<<<< HEAD
                 <div className="border-b py-3">
                   <h1 className="font-semibold">Proposal Rationale</h1>
-=======
-                <div className="py-3 border-b">
-                  <h1 className="font-semibold text-xl">Proposal Rationale</h1>
->>>>>>> 467a8c3e8ac4836e731c3e1266184fdafb8ef02f
                   <p>
                     Setting up funds to pay Development Guild contributors. The
                     socialites has attracted lots of inbound given how awesome
@@ -70,20 +65,13 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
                     presenting at ETH NYC, the team plans on adding additional
                     developers to accelerate product releases.
                   </p>
-<<<<<<< HEAD
                   <h3 className="my-2 font-semibold">Product Architecture</h3>
-=======
-                  <h3 className="font-semibold my-2 text-xl">
-                    Product Architecture
-                  </h3>
->>>>>>> 467a8c3e8ac4836e731c3e1266184fdafb8ef02f
                   <img
                     src={"/assets/images/Architecture.png"}
                     className="h-60 object-contain"
                   />
                 </div>
                 <div className="mt-2">
-<<<<<<< HEAD
                   <h1 className="font-semibold">Timeline</h1>
 
                   <ol className="relative border-l border-gray-700">
@@ -129,49 +117,6 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
                       </p>
                     </li>
                   </ol>
-=======
-                  <h1 className="font-semibold text-2xl">Timeline</h1>
-                  <div className="ml-2">
-                    <ol className="relative border-l border-gray-700">
-                      <li className="mb-10 ml-4">
-                        <div className="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -left-1.5 border border-white"></div>
-                        <time className="mb-1 text-sm font-normal leading-none text-gray-700">
-                          February 2022
-                        </time>
-                        <h3 className="text-lg font-semibold text-gray-900">
-                          Kickoff Workshop
-                        </h3>
-                        <p className="mb-4 text-base font-normal text-gray-700">
-                          Contributors: George, JBass, Kames, Dino, Annette
-                        </p>
-                      </li>
-                      <li className="mb-10 ml-4">
-                        <div className="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -left-1.5 border border-white"></div>
-                        <time className="mb-1 text-sm font-normal leading-none text-gray-700 ">
-                          March 2022
-                        </time>
-                        <h3 className="text-lg font-semibold text-gray-900">
-                          Design Review
-                        </h3>
-                        <p className="text-base font-normal text-gray-700">
-                          Contributors: Annette, Dino
-                        </p>
-                      </li>
-                      <li className="ml-4">
-                        <div className="absolute w-3 h-3 bg-gray-700 rounded-full mt-1.5 -left-1.5 border border-white "></div>
-                        <time className="mb-1 text-sm font-normal leading-none text-gray-700 ">
-                          April 2022
-                        </time>
-                        <h3 className="text-lg font-semibold text-gray-900">
-                          Dev Review
-                        </h3>
-                        <p className="text-base font-normal text-gray-700">
-                          Contributors: Kames, George, Justin
-                        </p>
-                      </li>
-                    </ol>
-                  </div>
->>>>>>> 467a8c3e8ac4836e731c3e1266184fdafb8ef02f
                 </div>
               </Dialog.Panel>
             </Transition.Child>

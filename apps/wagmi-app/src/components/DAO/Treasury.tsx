@@ -1,20 +1,14 @@
 // @ts-nocheck
-import { utils } from "ethers";
 import React from "react";
+import { utils } from "ethers";
 
 type Props = {};
 
 const Treasury = ({ guilds }: any) => {
   return (
-<<<<<<< HEAD
     <div className="w-3/5 rounded bg-white p-4 text-sm">
-      <h1 className="pb-2 text-2xl font-bold">Directory</h1>
+      <h1 className="pb-2 text-2xl font-bold">Treasury</h1>
       <div className="grid grid-cols-2 border-y py-2">
-=======
-    <div className="rounded bg-white p-4 w-3/5 text-sm">
-      <h1 className="text-2xl pb-2 font-bold">Treasury</h1>
-      <div className="py-2 border-y grid grid-cols-2">
->>>>>>> 467a8c3e8ac4836e731c3e1266184fdafb8ef02f
         <div>
           <p>Total Funds</p>
           <h2 className="text-3xl font-semibold">$59,509</h2>

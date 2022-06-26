@@ -1,9 +1,9 @@
 // @ts-nocheck
-import CitizenV1 from "@democracy-labs/governance-sol/deployments/localhost/CitizenV1.json";
+import CitizenV1 from "@democracy-labs/governance-sol/deployments/rinkeby/CitizenV1.json";
 import {
   CitizenNFTCard,
-  CitizenV1IssueFromFounder,
   CitizensLatestCardList,
+  CitizenV1IssueFromFounder,
 } from "@democracy-labs/governor-alpha-wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
@@ -103,7 +103,6 @@ const Index = () => {
           />
         </div>
       </div>
-<<<<<<< HEAD
       <div className="mx-auto my-5 max-w-4xl space-y-5 rounded bg-white p-4 text-black">
         <h1 className="text-2xl">Create New Society</h1>
 
@@ -144,8 +143,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-=======
->>>>>>> 467a8c3e8ac4836e731c3e1266184fdafb8ef02f
     </Main>
   );
 };
