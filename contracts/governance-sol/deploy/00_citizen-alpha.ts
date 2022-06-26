@@ -1,12 +1,12 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 
 export default async function deploy(hardhat: HardhatRuntimeEnvironment) {
-  const { deployments, getNamedAccounts } = hardhat;
+  const { deployments, getNamedAccounts, ethers } = hardhat;
 
   const { deploy } = deployments;
   const { deployer } = await getNamedAccounts();
 
-  await deploy("CitizenV1", {
+  const cv1 = await deploy("CitizenV1", {
     contract: "CitizenV1",
     from: deployer,
     args: [
@@ -16,4 +16,12 @@ export default async function deploy(hardhat: HardhatRuntimeEnvironment) {
     skipIfAlreadyDeployed: true,
     log: true,
   });
+<<<<<<< HEAD
+
+  const contract = await ethers.getContractAt('CitizenV1',cv1.address);
+
+  await contract.createGuild('The Soulcialites', 'Souls', 'A Sybil Resistant DAO Governance Architecture');
 }
+=======
+}
+>>>>>>> b6c6e283c7faefab5c9ef37b467769fe6566bb94

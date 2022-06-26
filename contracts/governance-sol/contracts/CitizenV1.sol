@@ -58,10 +58,12 @@ contract CitizenV1 is ERC721, AccessControl {
   /* ================================================================================ */
 
   function getDAOStream() public view returns (DAOView memory daoStream) {
+    // Guild.Metadata[] memory guildMetadata = new Guild.Metadata(dao.guilds.length);
     IGuild.Proposal[] memory guildProposals;
     for (uint256 index = 0; index < dao.guilds.length; index++) {
-      // Guild guild_ = Guild(dao.guilds[index]);
-      // IGuild.Proposal memory proposals = guild_.getProposal(1);
+      Guild guild_ = Guild(dao.guilds[index]);
+      // Guild.Metadata memory meta = guild_.getMetadata();
+      // guildMetadata[index] = meta;
       // guildProposals.push(proposals);
       // for (uint256 i = 0; i < proposals_.length; i++) {
       //   guildProposals.push(proposals_[i]);
@@ -85,8 +87,12 @@ contract CitizenV1 is ERC721, AccessControl {
 
   // External Guild Management
 
-  function createGuild(string memory name, string memory symbol) public {
-    Guild guild_ = new Guild(name, symbol, address(this));
+  function createGuild(
+    string memory name,
+    string memory symbol,
+    string memory description
+  ) public {
+    Guild guild_ = new Guild(name, symbol, description, address(this));
     dao.guilds.push(address(guild_));
   }
 
