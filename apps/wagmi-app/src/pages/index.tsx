@@ -54,17 +54,6 @@ const Index = () => {
 
   if (!data) {
     return (
-<<<<<<< HEAD
-      <IsMounted>
-        <div className="flex h-screen w-screen flex-col items-center justify-center gap-3 bg-black text-center text-white">
-          <h1 className="text-6xl font-bold">Decide the future of your DAO</h1>
-          <p className="mb-10 text-2xl">
-            Sybil Resistant On-Chain Representative Democracy
-          </p>
-          <ConnectButton />
-        </div>
-      </IsMounted>
-=======
       <div className="w-screen flex flex-col h-screen bg-black items-center justify-center text-white text-center gap-3">
         <h1 className="text-6xl font-bold">Decide the future of your DAO</h1>
         <p className="text-2xl mb-10">
@@ -72,7 +61,6 @@ const Index = () => {
         </p>
         <ConnectButton />
       </div>
->>>>>>> de33f5eb87fea44df604430b78b4f088452a81d4
     );
   }
 
@@ -126,9 +114,7 @@ const Index = () => {
             </div>
           </div>
         </section>
-      
       </div>
-
 
       <section className="py-10">
         <div className="container mx-auto max-w-screen-md">
@@ -159,7 +145,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-<<<<<<< HEAD
       <div className="h-full w-full bg-black p-10">
         <div className="mb-3 flex items-center justify-between">
           <h1 className="text-2xl font-semibold text-white">Your DAOs</h1>
@@ -192,8 +177,6 @@ const Index = () => {
           </IsMounted>
         </div>
       </div>
-=======
->>>>>>> de33f5eb87fea44df604430b78b4f088452a81d4
     </Main>
   );
 };
