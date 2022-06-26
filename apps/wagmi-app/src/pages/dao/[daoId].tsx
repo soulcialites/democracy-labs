@@ -1,12 +1,9 @@
 // @ts-nocheck
-<<<<<<< HEAD
 import React, { useState } from "react";
 import CitizenV1 from "@democracy-labs/governance-sol/deployments/rinkeby/CitizenV1.json";
 import { useCitizenV1ContractRead } from "@democracy-labs/governor-alpha-wagmi";
 import { useRouter } from "next/router";
 
-=======
->>>>>>> faf139d1ab23b573b9da5f6e303de5a5654c540f
 import Directory from "@/components/DAO/Directory";
 import Guilds from "@/components/DAO/Guilds";
 import Proposals from "@/components/DAO/Proposals";
