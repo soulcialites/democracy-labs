@@ -39,16 +39,21 @@ const DAOPage = () => {
         <div className="flex flex-wrap items-center gap-3">
           <div className="bg-gray-800 p-4 flex items-baseline gap-3">
             <div>
-              <h1 className="text-4xl text-white font-bold">4</h1>
+              <h1 className="text-4xl text-white font-bold">
+                {data?.proposals.length}
+              </h1>
               <p className="text-white text-sm">Active Proposals</p>
             </div>
             <div>
-              <progress
-                className="progress progress-primary w-32"
-                value="70"
-                max="100"
-              ></progress>
-              <p className="text-sm text-white">202 / 285 Complete</p>
+              <span className="text-xs mb-1 font-medium text-gray-500">
+                202/250
+              </span>
+              <div className="w-36 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                <div
+                  className="bg-blue-600 h-2.5 rounded-full"
+                  style={{ width: "75%" }}
+                ></div>
+              </div>
             </div>
           </div>
           <div className="bg-gray-800 p-4 flex">
@@ -59,7 +64,9 @@ const DAOPage = () => {
           </div>
           <div className="bg-gray-800 p-4 flex">
             <div>
-              <h1 className="text-4xl text-white font-bold">2347</h1>
+              <h1 className="text-4xl text-white font-bold">
+                {data?.founders.length}
+              </h1>
               <p className="text-sm text-white">DAO Members</p>
             </div>
           </div>

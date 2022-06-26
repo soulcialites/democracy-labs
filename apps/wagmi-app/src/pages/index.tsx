@@ -21,13 +21,14 @@ type UserDAOs = {
 interface DAO {
   id: string;
   name: string;
-  // myRoles: string[];
+  myRoles: string[];
   guilds: Guild[];
 }
 
 interface Guild {
   name: string;
   symbol: string;
+  description: string;
   members: string[];
   proposals: Proposal[];
 }
