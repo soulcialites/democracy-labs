@@ -14,11 +14,11 @@ const DAOPage = () => {
 
   const { data, loading, error } = useCitizenV1ContractRead(
     CitizenV1.address,
-    "issue",
-    ["0x3417aD1d79D9508912E8d7f3B9167085500b12CE", "test"]
+    "getDAOStream",
+    []
   );
 
-  console.log(data, "data");
+  console.log("Data", data);
   console.log("Error:", error);
 
   return (

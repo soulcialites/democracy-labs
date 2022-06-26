@@ -57,7 +57,7 @@ contract CitizenV1 is ERC721, AccessControl {
   /* External Functions                                                               */
   /* ================================================================================ */
 
-  function getDAOStream(address guild) public payable returns (DAOView memory dao) {
+  function getDAOStream() public view returns (DAOView memory dao) {
     return dao;
 
     IGuild.Proposal[] storage guildProposals;
