@@ -200,9 +200,9 @@ const Guilds = ({ guilds }: any) => {
                 >
                   {guild.name}
                 </th>
-                <td className="px-6 py-4 ">12</td>
-                <td className="px-6 py-4">65%</td>
-                <td className="px-6 py-4">1</td>
+                <td className="px-6 py-4 ">{Math.floor(Math.random() * 31)}</td>
+                <td className="px-6 py-4">{Math.floor(Math.random() * 100)}%</td>
+                <td className="px-6 py-4">{Math.floor(Math.random() * 11)}</td>
               </tr>
             ))}
           </tbody>
