@@ -103,49 +103,6 @@ const Index = () => {
           />
         </div>
       </div>
-<<<<<<< HEAD
-      <div className="mx-auto my-5 max-w-4xl space-y-5 rounded bg-white p-4 text-black">
-        <h1 className="text-2xl">Create New Society</h1>
-
-        <section>
-          <div className="container mx-auto max-w-md">
-            <div className="bg-neutral-500">
-              <h3>Add</h3>
-            </div>
-          </div>
-        </section>
-      </div>
-      <section className="py-10">
-        <div className="container mx-auto max-w-screen-md">
-          <div className="card">
-            <h3 className="text-4xl font-normal">Add Member/Citizen</h3>
-            <p className="">Managed by Founding Team</p>
-            <hr className="my-3 opacity-5" />
-            <CitizenV1IssueFromFounder contract={CitizenV1.address} />
-          </div>
-        </div>
-      </section>
-      <section className="py-10">
-        <div className="container mx-auto max-w-screen-md">
-          <div className="card">
-            <h3 className="text-4xl font-normal">Latest Citizens</h3>
-            <hr className="my-3 opacity-5" />
-            <IsMounted>
-              <CitizensLatestCardList contract={CitizenV1.address} />
-              <div className="grid grid-cols-12 gap-x-4">
-                <div className="col-span-4">
-                  <CitizenNFTCard contract={CitizenV1.address} />
-                </div>
-                <div className="col-span-4">
-                  <CitizenNFTCard contract={CitizenV1.address} tokenId="2" />
-                </div>
-              </div>
-            </IsMounted>
-          </div>
-        </div>
-      </section>
-=======
->>>>>>> 467a8c3e8ac4836e731c3e1266184fdafb8ef02f
     </Main>
   );
 };

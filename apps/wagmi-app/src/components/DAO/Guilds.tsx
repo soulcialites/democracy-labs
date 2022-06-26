@@ -35,7 +35,7 @@ const Guilds = ({ guilds }: any) => {
   );
   const onSubmit = (_data: any) => {
     write();
-    if (onUpdate) onUpdate(_data);
+    setOpen(false);
   };
 
   useCitizenV1ContractWrite(CitizenV1.address, "createGuild", [

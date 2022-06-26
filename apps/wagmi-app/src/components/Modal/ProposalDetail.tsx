@@ -56,13 +56,8 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
                   </div>
                 </div>
 
-<<<<<<< HEAD
                 <div className="border-b py-3">
                   <h1 className="font-semibold">Proposal Rationale</h1>
-=======
-                <div className="py-3 border-b">
-                  <h1 className="font-semibold text-xl">Proposal Rationale</h1>
->>>>>>> 467a8c3e8ac4836e731c3e1266184fdafb8ef02f
                   <p>
                     Setting up funds to pay Development Guild contributors. The
                     socialites has attracted lots of inbound given how awesome
@@ -70,66 +65,13 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
                     presenting at ETH NYC, the team plans on adding additional
                     developers to accelerate product releases.
                   </p>
-<<<<<<< HEAD
                   <h3 className="my-2 font-semibold">Product Architecture</h3>
-=======
-                  <h3 className="font-semibold my-2 text-xl">
-                    Product Architecture
-                  </h3>
->>>>>>> 467a8c3e8ac4836e731c3e1266184fdafb8ef02f
                   <img
                     src={"/assets/images/Architecture.png"}
                     className="h-60 object-contain"
                   />
                 </div>
                 <div className="mt-2">
-<<<<<<< HEAD
-                  <h1 className="font-semibold">Timeline</h1>
-
-                  <ol className="relative border-l border-gray-700">
-                    <li className="mb-10 ml-4">
-                      <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-700"></div>
-                      <time className="mb-1 text-sm font-normal leading-none text-gray-700">
-                        February 2022
-                      </time>
-                      <h3 className="text-lg font-semibold text-gray-900">
-                        Application UI code in Tailwind CSS
-                      </h3>
-                      <p className="mb-4 text-base font-normal text-gray-700">
-                        Get access to over 20+ pages including a dashboard
-                        layout, charts, kanban board, calendar, and pre-order
-                        E-commerce &amp; Marketing pages.
-                      </p>
-                    </li>
-                    <li className="mb-10 ml-4">
-                      <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-700"></div>
-                      <time className="mb-1 text-sm font-normal leading-none text-gray-700 ">
-                        March 2022
-                      </time>
-                      <h3 className="text-lg font-semibold text-gray-900">
-                        Marketing UI design in Figma
-                      </h3>
-                      <p className="text-base font-normal text-gray-700">
-                        All of the pages and components are first designed in
-                        Figma and we keep a parity between the two versions even
-                        as we update the project.
-                      </p>
-                    </li>
-                    <li className="ml-4">
-                      <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-700 "></div>
-                      <time className="mb-1 text-sm font-normal leading-none text-gray-700 ">
-                        April 2022
-                      </time>
-                      <h3 className="text-lg font-semibold text-gray-900">
-                        E-Commerce UI code in Tailwind CSS
-                      </h3>
-                      <p className="text-base font-normal text-gray-700">
-                        Get started with dozens of web components and
-                        interactive elements built on top of Tailwind CSS.
-                      </p>
-                    </li>
-                  </ol>
-=======
                   <h1 className="font-semibold text-2xl">Timeline</h1>
                   <div className="ml-2">
                     <ol className="relative border-l border-gray-700">
@@ -171,7 +113,6 @@ const ProposalDetail = ({ open, setOpen }: Props) => {
                       </li>
                     </ol>
                   </div>
->>>>>>> 467a8c3e8ac4836e731c3e1266184fdafb8ef02f
                 </div>
               </Dialog.Panel>
             </Transition.Child>
