@@ -28,7 +28,7 @@ contract CitizenV1 is ERC721, AccessControl {
 
   struct DAOView {
     address[] founders;
-    address[] guilds;
+    Guild.Metadata[] guilds;
     IGuild.Proposal[] proposals;
   }
 
@@ -58,19 +58,19 @@ contract CitizenV1 is ERC721, AccessControl {
   /* ================================================================================ */
 
   function getDAOStream() public view returns (DAOView memory daoStream) {
-    // Guild.Metadata[] memory guildMetadata = new Guild.Metadata(dao.guilds.length);
+    Guild.Metadata[] memory guildMetadata = new Guild.Metadata[](dao.guilds.length);
     IGuild.Proposal[] memory guildProposals;
     for (uint256 index = 0; index < dao.guilds.length; index++) {
-      Guild guild_ = Guild(dao.guilds[index]);
-      // Guild.Metadata memory meta = guild_.getMetadata();
-      // guildMetadata[index] = meta;
+      Guild guild_ = Guild(payable(dao.guilds[index]));
+      Guild.Metadata memory meta = guild_.getMetadata();
+      guildMetadata[index] = meta;
       // guildProposals.push(proposals);
       // for (uint256 i = 0; i < proposals_.length; i++) {
       //   guildProposals.push(proposals_[i]);
       // }
     }
 
-    return DAOView({ founders: dao.founders, guilds: dao.guilds, proposals: guildProposals });
+    return DAOView({ founders: dao.founders, guilds: guildMetadata, proposals: guildProposals });
   }
 
   function getDAO(address guild) public payable returns (DAOStorage memory daoInfo) {
@@ -91,12 +91,15 @@ contract CitizenV1 is ERC721, AccessControl {
     string memory name,
     string memory symbol,
     string memory description
-  ) public {
+  ) public payable {
     Guild guild_ = new Guild(name, symbol, description, address(this));
     dao.guilds.push(address(guild_));
+    (bool _success, ) = address(guild_).call{ value: msg.value }("");
+
+    require(_success, "Fail");
   }
 
-  function getGuildProposals(address guild) external returns (IGuild.Proposal[] memory) {
+  function getGuildProposals(address payable guild) external returns (IGuild.Proposal[] memory) {
     Guild guild_ = Guild(guild);
     return guild_.getProposals();
   }

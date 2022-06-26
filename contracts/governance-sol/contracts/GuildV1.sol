@@ -26,10 +26,13 @@ contract Guild is MemberV1, IGuild {
 
   string private description;
 
+  event Received(address from, uint256 amount);
+
   struct Metadata {
     string name;
     string symbol;
     string description;
+    uint256 treasury;
   }
 
   constructor(
@@ -41,8 +44,19 @@ contract Guild is MemberV1, IGuild {
     description = description_;
   }
 
-  function getMetadata(uint256 index) external view returns (Metadata memory) {
-    return Metadata({ name: name(), symbol: symbol(), description: description });
+  // receive() external payable {};
+  receive() external payable {
+    emit Received(msg.sender, msg.value);
+  }
+
+  function getMetadata() external view returns (Metadata memory) {
+    return
+      Metadata({
+        name: name(),
+        symbol: symbol(),
+        description: description,
+        treasury: address(this).balance
+      });
   }
 
   function getProposal(uint256 index) external view returns (Proposal memory) {
