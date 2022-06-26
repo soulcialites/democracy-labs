@@ -103,6 +103,7 @@ const Index = () => {
           />
         </div>
       </div>
+<<<<<<< HEAD
       <div className="mx-auto my-5 max-w-4xl space-y-5 rounded bg-white p-4 text-black">
         <h1 className="text-2xl">Create New Society</h1>
 
@@ -143,6 +144,8 @@ const Index = () => {
           </div>
         </div>
       </section>
+=======
+>>>>>>> 467a8c3e8ac4836e731c3e1266184fdafb8ef02f
     </Main>
   );
 };

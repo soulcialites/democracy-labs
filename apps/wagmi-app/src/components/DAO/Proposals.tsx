@@ -5,9 +5,10 @@ import type { Proposal } from "@/pages";
 
 type ProposalsProps = {
   proposals: Proposal[];
+  setOpen: any;
 };
 
-const Proposals = ({ proposals }: ProposalsProps) => {
+const Proposals = ({ proposals, setOpen }: ProposalsProps) => {
   return (
     <div className="mx-10 -mt-24 rounded bg-white p-4">
       <h1 className="text-2xl font-semibold text-black">Recent Proposals</h1>
@@ -35,7 +36,14 @@ const Proposals = ({ proposals }: ProposalsProps) => {
                 scope="row"
                 className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
               >
+<<<<<<< HEAD
                 <div className="flex cursor-pointer items-center gap-2 hover:underline">
+=======
+                <div
+                  className="flex items-center gap-2 hover:underline cursor-pointer"
+                  onClick={() => setOpen(true)}
+                >
+>>>>>>> 467a8c3e8ac4836e731c3e1266184fdafb8ef02f
                   <img src={"/assets/icons/Arrow.svg"} className="h-4 w-4" />
                   <h2 className="text-base">
                     Launching our social media channel
@@ -85,7 +93,14 @@ const Proposals = ({ proposals }: ProposalsProps) => {
                 scope="row"
                 className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
               >
+<<<<<<< HEAD
                 <div className="flex cursor-pointer items-center gap-2 hover:underline">
+=======
+                <div
+                  className="flex items-center gap-2 hover:underline cursor-pointer"
+                  onClick={() => setOpen(true)}
+                >
+>>>>>>> 467a8c3e8ac4836e731c3e1266184fdafb8ef02f
                   <img src={"/assets/icons/Arrow.svg"} className="h-4 w-4" />
                   <h2 className="text-base">
                     Finalize partnership with Optimism
