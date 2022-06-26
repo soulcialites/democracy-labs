@@ -47,7 +47,7 @@ const Guilds = ({ guilds }: any) => {
   return (
     <div className="mx-10 space-y-3 rounded bg-white p-4">
       <div className="flex justify-between">
-        <h1 className="text-2xl font-semibold text-black">Your Guilds</h1>
+        <h1 className="text-2xl font-semibold text-black">Guilds</h1>
         <div
           className="cursor-pointer rounded-full border bg-gray-200 px-3 py-1 hover:bg-purple-200"
           onClick={() => setOpen(true)}
@@ -175,40 +175,6 @@ const Guilds = ({ guilds }: any) => {
         </Transition>
       </div>
 
-      <div className="relative overflow-x-auto sm:rounded-lg">
-        <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
-          <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-              <th scope="col" className="px-6 py-3"></th>
-              <th scope="col" className="px-6 py-3">
-                Active Proposals
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Progress
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Requests
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {guilds?.map((guild) => (
-              <tr className="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
-                <th
-                  scope="row"
-                  className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white"
-                >
-                  {guild.name}
-                </th>
-                <td className="px-6 py-4 ">12</td>
-                <td className="px-6 py-4">65%</td>
-                <td className="px-6 py-4">1</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <h1 className="text-2xl font-semibold text-black">Other Guilds</h1>
       <div className="relative overflow-x-auto sm:rounded-lg">
         <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
           <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
