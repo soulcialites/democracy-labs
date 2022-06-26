@@ -54,8 +54,6 @@ const Index = () => {
     []
   );
 
-  console.log(treasury);
-
   if (!data) {
     return (
       <div className="flex h-screen w-screen flex-col items-center justify-center gap-3 bg-black text-center text-white">
@@ -69,88 +67,83 @@ const Index = () => {
   }
 
   return (
-    <Main
-      meta={
-        <Meta
-          title={`${AppConfig.title} | ${AppConfig.description}`}
-          description={AppConfig.description}
-        />
-      }
-    >
-      <div className="h-full w-full bg-black p-10">
-        <div className="mb-3 flex items-center justify-between">
-          <h1 className="text-2xl font-semibold text-white">Your DAOs</h1>
-          <div className="flex items-center gap-3">
-            <div className="rounded border border-purple-300 px-2 py-1 text-purple-300">
-              Filter
-            </div>
-            <div className="rounded border border-purple-300 px-2 py-1 text-purple-300">
-              Sort
-            </div>
-          </div>
-        </div>
-        <div className="gap-3 text-sm">
-          <DAOCard
-            name="Soulcialites"
-            roleTier="Active Citizen"
-            skills={["Product Design", "Solidity"]}
-            activeProposals={3}
-            expectedEarnings={1250}
-            earningsToDate={2440}
-            requests={[
-              {
-                title: "Code review for new product",
-                category: "blocker",
-                guild: "Product Guild",
-              },
-            ]}
+    <IsMounted>
+      <Main
+        meta={
+          <Meta
+            title={`${AppConfig.title} | ${AppConfig.description}`}
+            description={AppConfig.description}
           />
-        </div>
-      </div>
-<<<<<<< HEAD
-      <div className="mx-auto my-5 max-w-4xl space-y-5 rounded bg-white p-4 text-black">
-        <h1 className="text-2xl">Create New Society</h1>
-
-        <section>
-          <div className="container mx-auto max-w-md">
-            <div className="bg-neutral-500">
-              <h3>Add</h3>
+        }
+      >
+        <div className="h-full w-full bg-black p-10">
+          <div className="mb-3 flex items-center justify-between">
+            <h1 className="text-2xl font-semibold text-white">Your DAOs</h1>
+            <div className="flex items-center gap-3">
+              <div className="rounded border border-purple-300 px-2 py-1 text-purple-300">
+                Filter
+              </div>
+              <div className="rounded border border-purple-300 px-2 py-1 text-purple-300">
+                Sort
+              </div>
             </div>
           </div>
-        </section>
-      </div>
-      <section className="py-10">
-        <div className="container mx-auto max-w-screen-md">
-          <div className="card">
-            <h3 className="text-4xl font-normal">Add Member/Citizen</h3>
-            <p className="">Managed by Founding Team</p>
-            <hr className="my-3 opacity-5" />
-            <CitizenV1IssueFromFounder contract={CitizenV1.address} />
+          <div className="space-y-3 text-sm">
+            <DAOCard
+              name="Soulcialites"
+              roleTier="Active Citizen"
+              skills={["Product Design", "Solidity"]}
+              activeProposals={3}
+              expectedEarnings={1250}
+              earningsToDate={2440}
+              requests={[
+                {
+                  title: "Code review for new product",
+                  category: "blocker",
+                  guild: "Product Guild",
+                },
+                {
+                  title: "Broken feature transactions handling",
+                  category: "blocker",
+                  guild: "Developer Guild",
+                },
+              ]}
+            />
+            <DAOCard
+              name="BakeryDAO"
+              roleTier="Creator"
+              skills={["Research", "Writing"]}
+              activeProposals={1}
+              expectedEarnings={4200}
+              earningsToDate={440}
+              requests={[
+                {
+                  title:
+                    "Approve payment to contributor for research projected",
+                  category: "blocker",
+                  guild: "Research Guild",
+                },
+              ]}
+            />
+            <DAOCard
+              name="PoolTogether"
+              roleTier="Tier Member"
+              skills={["Design"]}
+              activeProposals={0}
+              expectedEarnings={0}
+              earningsToDate={400}
+              requests={[
+                {
+                  title: "Vote to deploy on Optimism",
+                  category: "Vote",
+                  guild: "Operations SubDAO",
+                },
+              ]}
+            />
           </div>
         </div>
-      </section>
-      <section className="py-10">
-        <div className="container mx-auto max-w-screen-md">
-          <div className="card">
-            <h3 className="text-4xl font-normal">Latest Citizens</h3>
-            <hr className="my-3 opacity-5" />
-            <IsMounted>
-              <CitizensLatestCardList contract={CitizenV1.address} />
-              <div className="grid grid-cols-12 gap-x-4">
-                <div className="col-span-4">
-                  <CitizenNFTCard contract={CitizenV1.address} />
-                </div>
-                <div className="col-span-4">
-                  <CitizenNFTCard contract={CitizenV1.address} tokenId="2" />
-                </div>
-              </div>
-            </IsMounted>
-          </div>
-        </div>
-      </section>
-=======
->>>>>>> faf139d1ab23b573b9da5f6e303de5a5654c540f
     </Main>
+======
   );
 };
 

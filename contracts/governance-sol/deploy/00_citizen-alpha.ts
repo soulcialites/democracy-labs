@@ -18,6 +18,7 @@ export default async function deploy(hardhat: HardhatRuntimeEnvironment) {
     log: true,
   });
 
+<<<<<<< HEAD
   const contract = await ethers.getContractAt('CitizenV1',cv1.address);
 
   await contract.createGuild('The Soulcialites', 'Souls', 'A Sybil Resistant DAO Governance Architecture', {
@@ -25,17 +26,33 @@ export default async function deploy(hardhat: HardhatRuntimeEnvironment) {
     type: 0,
     gasLimit: 500000,
     // gasPrice: 50
+=======
+  const contract = await ethers.getContractAt("CitizenV1", cv1.address);
+
+  await contract.createGuild(
+    "Founding Members",
+    "Souls",
+    "A Sybil Resistant DAO Governance Architecture",
+    {
+      value: utils.parseEther("1"),
+    }
+  );
+  await contract.createGuild("Treasury", "Tsr", "Treasury Guild", {
+    value: utils.parseEther("252"),
+  });
+  await contract.createGuild("Product", "Prod", "Product Guild", {
+    value: utils.parseEther("252"),
+>>>>>>> 96890cdf9e2e1fa04809c76b75a391b6292a466c
   });
 
   const guilds = await contract.getGuilds();
 
-  console.log(guilds, 'guilds')
+  console.log(guilds, "guilds");
 
   for (let i1 = 0; i1 < guilds.length; i1++) {
-    let contract = await ethers.getContractAt('MemberV1',guilds[i1]);
+    let contract = await ethers.getContractAt("MemberV1", guilds[i1]);
 
-    await contract.issue(deployer)
-    
+    await contract.issue(deployer);
   }
 
   // const guild = await ethers.getContractAt('GuildV1',cv1.address);
